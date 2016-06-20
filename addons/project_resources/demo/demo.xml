@@ -1,0 +1,33 @@
+<openerp>
+    <data>
+
+        <!--
+        <record id="project.resource_types_product" model="project.resource_types">
+            <field name="name">Продукт (компонент)</field>
+            <field name="source_model">product.product</field>
+        </record>
+
+        <record id="project.resource_types_technology" model="project.resource_types">
+            <field name="name">Технология</field>
+        </record>
+
+        <record id="project.resource_types_blueprint" model="project.resource_types">
+            <field name="name">Чертеж</field>
+        </record>
+
+        <record id="project.resource_types_tech_spec" model="project.resource_types">
+            <field name="name">Спецификация производства</field>
+        </record>
+
+        <record id="project.resource_types_bp_construct" model="project.resource_types">
+            <field name="name">Строительный</field>
+            <field name="parent_id" ref="project.resource_types_blueprint"/>
+        </record>
+
+        <record id="project.resource_types_bp_production" model="project.resource_types">
+            <field name="name">Производственный</field>
+            <field name="parent_id" ref="project.resource_types_blueprint"/>
+        </record>
+        -->
+    </data>
+</openerp>

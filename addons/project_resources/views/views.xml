@@ -1,0 +1,131 @@
+<openerp>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="project.resources_list">
+      <field name="name">resources_list</field>
+      <field name="model">project.resources</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="task_id"/>
+            <field name="type_list"/>
+            <field name="product_id" attrs="{'invisible':[('type_list','!=','Prod')]}"/>
+            <field name="technology_id" attrs="{'invisible':[('type_list','!=','Tech')]}"/>
+            <field name="blueprint_id" attrs="{'invisible':[('type_list','!=','BP')]}"/>
+            <field name="prod_spec_id" attrs="{'invisible':[('type_list','!=','ProdSpec')]}"/>
+            <field name="need_count" attrs="{'invisible':[('type_list','!=','Prod')]}"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="project.property_values_tree_view">
+        <field name="name">property_values.tree</field>
+        <field name="model">project.property_values</field>
+        <field name="arch" type="xml">
+            <tree string="Property values Tree">
+                <field name="property_id"/>
+                <field name="value"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project.resources_form_view">
+        <field name="name">resources.form</field>
+        <field name="model">project.resources</field>
+        <field name="arch" type="xml">
+            <form string="Resources Form">
+                <sheet>
+                    <group>
+                        <field name="task_id"/>
+                        <field name="type_list"/>
+                        <field name="object_id"/>
+                        <field name="product_id" attrs="{'invisible':[('type_list','!=','Prod')]}"/>
+                        <field name="technology_id" attrs="{'invisible':[('type_list','!=','Tech')]}"/>
+                        <field name="blueprint_id" attrs="{'invisible':[('type_list','!=','BP')]}"/>
+                        <field name="prod_spec_id" attrs="{'invisible':[('type_list','!=','ProdSpec')]}"/>
+                        <field name="need_count" attrs="{'invisible':[('type_list','!=','Prod')]}"/>
+                    </group>
+                    <notebook>
+                        <page string="Caption">
+                            <field name="caption"/>
+                        </page>
+                        <page string="About">
+                            This is an example of notebooks
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_task_form2_inherited" model="ir.ui.view">
+        <field name="name">project.project.task.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="mode">extension</field>
+        <field name="arch" type="xml">
+            <!--
+            <xpath expr='//div[@name="options_active"]' position='inside'>
+                <div>
+                    <field name="use_issues" class="oe_inline" string="Use Issues"
+                            on_change="on_change_use_tasks_or_issues(use_tasks, use_issues)"/>
+                    <label for="use_issues" class="oe_inline"/>
+                    <span attrs="{'invisible':[('use_issues', '=', False)]}">as </span>
+                    <field name="label_issues" class="oe_inline oe_input_align" attrs="{'invisible': [('use_issues', '=', False)]}"/>
+                </div>
+            </xpath>
+            -->
+             <notebook>
+                 <page string="Resources">
+                     <field name="resources"/>
+                 </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="view_task_gantt" model="ir.ui.view">
+        <field name="name">project.project.task.gantt</field>
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <gantt date_start="project.task.date_start"/>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="resources_action_window">
+        <field name="name">resources</field>
+        <field name="res_model">project.resources</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="properties_action_window">
+        <field name="name">properties</field>
+        <field name="res_model">project.properties</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="technology_action_window">
+        <field name="name">technology</field>
+        <field name="res_model">project.technology</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="property_types_action_window">
+        <field name="name">property_types</field>
+        <field name="res_model">project.property_types</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="Управление ресурсами" id="project.resources_root" parent="base.menu_main_pm"/>
+    <!-- menu categories -->
+    <menuitem name="Свойства" id="project.property_root" parent="project.resources_root"/>
+    <menuitem name="Ресурсы" id="project.resource_root" parent="project.resources_root"/>
+    
+    <!-- actions -->
+  
+    <menuitem name="Типы свойств" id="project.property_types" parent="project.property_root" action="property_types_action_window"/>
+    <menuitem name="Свойства" id="project.properties" parent="project.property_root" action="properties_action_window"/>
+    <menuitem name="Ресурсы" id="project.resources" parent="project.resource_root" action="resources_action_window"/>
+    <menuitem name="Технологии" id="project.technology" parent="project.resource_root" action="technology_action_window"/>
+  </data>
+</openerp>
