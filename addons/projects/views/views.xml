@@ -1,0 +1,28 @@
+<openerp>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="projects.projects_list">
+      <field name="name">projects_list</field>
+      <field name="model">project.resources</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="task_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record id="view_tasks_gantt" model="ir.ui.view">
+        <field name="name">projects.projects.tasks.gantt</field>
+        <field name="model">projects.tasks</field>
+        <field name="arch" type="xml">
+            <gantt date_start="projects.tasks.date_start"/>
+        </field>
+    </record>
+
+
+    <!-- Top menu item -->
+    <menuitem name="Проекты" id="projects.root" parent="base.menu_main_pm"/>
+
+  </data>
+</openerp>
