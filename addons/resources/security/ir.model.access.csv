@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_test_new_test_new,test_new.test_new,model_test_new_test_new,,1,0,0,0
+access_resources_resources,resources.resources,model_resources_resources,,1,0,0,0
