@@ -4,5 +4,4 @@ old/
 logs/
 distrib/
 bin/
-data/
 *.pyc

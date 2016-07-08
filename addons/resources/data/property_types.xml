@@ -1,0 +1,15 @@
+<openerp>
+    <data>
+        <record id="property_type_integer" model="resources.property_types">
+            <field name="name">Целое число</field>
+        </record>
+
+        <record id="property_type_list" model="resources.property_types">
+            <field name="name">Список</field>
+        </record>
+
+        <record id="property_type_checkbox" model="resources.property_types">
+            <field name="name">Флажок</field>
+        </record>
+    </data>
+</openerp>
