@@ -1,0 +1,101 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>7.4. Типы свойств ресурса</title><link rel="stylesheet" href="html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"><link rel="home" href="index.html" title="Онима. Руководство пользователя"><link rel="up" href="billing_common_rules_description.html" title="Глава 7. Правила создания и использования сущностей"><link rel="prev" href="additional_attributes_rules.html" title="7.3. Создание и отображение дополнительных атрибутов"><link rel="next" href="billing_online_help.html" title="АСР «Онима». Графический интерфейс"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.4. Типы свойств ресурса</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="additional_attributes_rules.html">Пред.</a> </td><th width="60%" align="center">Глава 7. Правила создания и использования сущностей</th><td width="20%" align="right"> <a accesskey="n" href="billing_online_help.html">След.</a></td></tr></table><hr></div><div class="section" title="7.4. Типы свойств ресурса"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="property_types"></a>7.4. Типы свойств ресурса</h2></div></div></div><div class="glosslist"><dl><dt><a name="idm47838725122192"></a><em class="glossterm">Тип свойства</em></dt><dd><p>характеристики свойства ресурса , которые определяют правила
+        заполнения и функциональные особенности.</p></dd></dl></div><p>Каждое свойство ресурса может иметь один из следующих типов:</p><div class="variablelist"><dl><dt><span class="term">Comment</span></dt><dd><p>Значением свойства является произвольная строка. Чаще всего
+        значение свойств типа <span class="emphasis"><em>Comment</em></span> вычисляются при
+        помощи функций. Значения свойств типа <span class="emphasis"><em>Comment</em></span>
+        формируют название проключения.</p></dd><dt><span class="term">Config Point</span></dt><dd><p>Значением свойства является точка конфигурации подключения,
+        выбираемая из списка возможных для заданного ресурса <a href="glossary.html#gl_%D1%86%D0%B5%D0%BD%D1%82%D1%80_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D0%B8"><em class="firstterm">центров конфигурации</em></a>.</p></dd><dt><span class="term">Hidden Config Point</span></dt><dd><p>Значением свойства является точка конфигурации проключения,
+        найденная в родительских ресурсах, имеющих заданные <a href="glossary.html#gl_%D1%86%D0%B5%D0%BD%D1%82%D1%80_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D0%B8"><em class="firstterm">центры конфигурации</em></a>.</p></dd><dt><span class="term">Hidden</span></dt><dd><p>Значением свойства является произвольная строка. Чаще всего
+        значение свойств типа <span class="emphasis"><em>Hidden</em></span> вычисляются при
+        помощи функций.</p></dd><dt><span class="term">IP-address</span></dt><dd><p>Значением свойства является </p><pre class="programlisting">x.x.x.x (ip адрес)</pre></dd><dt><span class="term">Restricted Rights</span></dt><dd><p>Используется только для ресурсов, выбранных, как
+        <em class="parameter"><code>Доступ к серверу статистики</code></em>. Принимает два
+        значения: истина или ложь. В случае, если значение свойства
+        <em class="parameter"><code>Истина</code></em>, пользователь стат-сервера имеет доступ
+        к системе в режиме <em class="parameter"><code>Только чтение</code></em>.</p></dd><dt><span class="term">Popup</span></dt><dd><p>Тип свойства подобный типу <em class="parameter"><code>Авториз.URL</code></em>,
+        но открывающий ссылку в отдельном маленьком окне.</p></dd><dt><span class="term">SNMP Oid</span></dt><dd><p>SNMP Oid.</p></dd><dt><span class="term">URL</span></dt><dd><p>Просто URL.</p></dd><dt><span class="term">Авториз. URL</span></dt><dd><p>URL с аутентификацией.</p></dd><dt><span class="term">Временная зона</span></dt><dd><p></p></dd><dt><span class="term">Вычисляемое системой</span></dt><dd><p></p></dd><dt><span class="term">Дата</span></dt><dd><p>Дата. Если в длине записано:</p><div class="variablelist"><dl><dt><span class="term">1</span></dt><dd><p>DD.MM.YY</p></dd><dt><span class="term">2</span></dt><dd><p>DD.MM.YYYY</p></dd><dt><span class="term">3</span></dt><dd><p>DD.MM.YYYY HH24:MI</p></dd><dt><span class="term">4</span></dt><dd><p>MM.YY</p></dd></dl></div></dd><dt><span class="term">Домен</span></dt><dd><p></p></dd><dt><span class="term">Логин</span></dt><dd><p>Значением свойства является <a href="glossary.html#gl_%D1%83%D1%87%D0%B5%D1%82%D0%BD%D0%BE%D0%B5_%D0%B8%D0%BC%D1%8F"><em class="firstterm">учетное имя</em></a>.</p></dd><dt><span class="term">Логический</span></dt><dd><p></p></dd><dt><span class="term">Метод шифрования пароля</span></dt><dd><p>Метод шифрования пароля</p></dd><dt><span class="term">Многомерный объект</span></dt><dd><p></p></dd><dt><span class="term">Номер заказа</span></dt><dd><p></p></dd><dt><span class="term">Номер из серии</span></dt><dd><p>Значением свойства является номер из серии номеров.</p></dd><dt><span class="term">Пароль</span></dt><dd><p>Значением свойства является криптованная строка символов. Метод
+        криптования определяется свойством типа "Метод шифрования пароля".
+        Если свойство типа <em class="parameter"><code>Метод шифрования</code></em> не включено
+        в ресурс, используется алгоритм криптования DES.</p></dd><dt><span class="term">Подсеть</span></dt><dd><p>Значением свойства является строка типа
+        (ip-подсеть).</p><pre class="programlisting">x.x.x.x/x</pre><div class="example"><a name="idm47838756972960"></a><p class="title"><b>Пример 7.2. Применение типа свойства <span class="quote">«<span class="quote">Подсеть</span>»</span></b></p><div class="example-contents"><p>Предположим, что в системе есть ресурс A одним из свойств A1
+            которого является <em class="parameter"><code>Подсеть</code></em>. При подключении
+            ресурса A система автоматически устанавливает один фингерпринт
+            подключения подсети и статистика потребления трафика считается по
+            единственному фингерпринту, т.е. на всю подсеть. Чтобы
+            автоматически считать статистику на каждый IP-адрес подсети
+            вводится функция <em class="parameter"><code>Свойство
+            (псевдо)</code></em> для специального свойства А2 ресурса A.
+            Свойство A2 должно иметь тип <em class="parameter"><code>Список свойств для
+            разбиения</code></em>. В качестве значения по умолчанию свойства
+            А2 укажем функцию <em class="parameter"><code>Свойство
+            (псевдо)</code></em>. В списке параметров функций для свойств
+            создаем функцию для A2, указываем, какое именно свойство
+            необходимо разбить. В нашем случае это свойство A1. В системе
+            устанавливается связь между двумя свойствами. При подключении
+            ресурса A, оператор может указать в качестве значения свойства A2
+            свойство A1. В этом случае для каждого IP-адреса подсети (значение
+            свойства A1) будет сформирован <a href="glossary.html#gl_%D1%84%D0%B8%D0%BD%D0%B3%D0%B5%D1%80%D0%BF%D1%80%D0%B8%D0%BD%D1%82"><em class="firstterm">фингерпринт</em></a> и статистика
+            потребления трафика будет автоматически собираться по каждому
+            IP-адресу. В данном случае мы использовали функцию
+            <em class="parameter"><code>Свойство (псевдо)</code></em> для связи свойства типа
+            <em class="parameter"><code>Подсеть</code></em> со свойством типа <em class="parameter"><code>Список
+            свойств для разбиения</code></em> с целью детализации статистики
+            по каждому адресу подсети. Такая же конструкция справедлива для
+            связи свойств типа <em class="parameter"><code>Серия номеров</code></em> и
+            <em class="parameter"><code>Список свойств</code></em> для разбиения с целью
+            детализации статистики по каждому номеру серии.</p></div></div><p><br class="example-break"></p></dd><dt><span class="term">Профиль пользователя</span></dt><dd><p>Используется для сервера статистики и регистрации. В системе
+        можно определить несколько профилей доступа к данным.</p></dd><dt><span class="term">Серийный номер</span></dt><dd><p>Серийный номер подключения</p></dd><dt><span class="term">Серия номеров</span></dt><dd><p>Значением свойства является строка вида N/M. N - первый номер
+        серии. M - количество номеров в серии. Приведем пример использования
+        свойства этого типа.</p><div class="example"><a name="idm47838725862272"></a><p class="title"><b>Пример 7.3. Применение типа свойства <span class="quote">«<span class="quote">Серия
+            номеров</span>»</span></b></p><div class="example-contents"><p>Предположим, что в системе есть ресурс A, одним из свойств
+            A1 которого является серия номеров - 1/50. Мы же осуществляем
+            подключение ресурса B, которому нужно выделить только несколько
+            последовательных номеров из этой серии, например пять
+            последовательных номеров из серии A1.</p><p>Первое, что требуется сделать - это связать ресурс B с
+            ресурсом A. Затем, чтобы описать процесс выделения серии, вводится
+            функция <em class="parameter"><code>Свойство (псевдо)</code></em> для свойства B1
+            ресурса B . Свойство B1 должно иметь тип <em class="parameter"><code>Серия
+            номеров</code></em> (чтобы выделение серии имело смысл), значением
+            по умолчанию свойства B1 делается функция <em class="parameter"><code>Свойство
+            (псевдо)</code></em>. В списке параметров функций для свойств
+            создаем эту функцию для нашего свойств B1: указываем точку входа в
+            ресурс (в данном случае в ресурс A ), это, как правило свойство
+            AN, образующее список, например - AN = Название. Автоматически
+            среди свойств ресурса A будет найдено свойство того же типа (
+            Серия номеров), как свойство B1 - в нашем случае A1, и между ними
+            будет установлена связь. Оператор может попросить систему показать
+            оставшиеся свободными у A1 серии номеров, выбрать и внести серию в
+            значение свойства B1.</p><p>Например, в серии 1/50 заняты 1/15, 18/5, 40/5. Тогда можно
+            взять первые пять последовательных номеров - 23/5. В данном
+            примере мы использовали функцию
+            <em class="parameter"><code>Свойство(псевдо)</code></em> для связи свойства типа
+            Серия номеров одного ресурса B с свойством типа Серия номеров
+            другого ресурса A с целью автоматического контроля за операторским
+            выделением серий номеров. Такая же конструкция справедлива для
+            связи свойств типа Подсеть с целью выделения последовательного
+            пула IP-адресов из подсети.</p></div></div><p><br class="example-break"></p></dd><dt><span class="term">Символьный</span></dt><dd><p>Значением свойства является символьная строка</p></dd><dt><span class="term">Список свойств для разбиения</span></dt><dd><p>Объяcним на примере, для чего используется свойство такого
+        типа.</p><div class="example"><a name="idm47838706453360"></a><p class="title"><b>Пример 7.4. Применение типа свойства <span class="quote">«<span class="quote">Список свойств для
+            разбиения</span>»</span></b></p><div class="example-contents"><p>Предположим, что в системе есть ресурс A одним из свойств A1
+            которого является <em class="parameter"><code>Подсеть</code></em>. При подключении
+            ресурса A система автоматически устанавливает один фингерпринт
+            подключения подсети и статистика потребления трафика считается по
+            единственному фингерпринту, т. е. на всю подсеть. Чтобы
+            автоматически считать статистику на каждый IP-адрес подсети
+            вводится функция <em class="parameter"><code>Свойство (псевдо)</code></em> для
+            специального свойства А2 ресурса A. Свойство A2 должно иметь тип
+            <em class="parameter"><code>Список свойств для разбиения</code></em>. В качестве
+            значения по умолчанию свойства А2 укажем функцию
+            <em class="parameter"><code>Свойство (псевдо)</code></em>. В списке параметров
+            функций для свойств создаем функцию для A2, указываем, какое
+            именно свойство необходимо разбить. В нашем случае это свойство
+            A1. В системе устанавливается связь между двумя свойствами. При
+            подключении ресурса A, оператор может указать в качестве значения
+            свойства A2 свойство A1. В этом случае для каждого IP-адреса
+            подсети (значение свойства A1) будет сформирован фингерпринт и
+            статистика потребления трафика будет автоматически собираться по
+            каждому IP-адресу. В данном случае мы использовали функцию
+            <em class="parameter"><code>Свойство (псевдо)</code></em> для связи свойства типа
+            <em class="parameter"><code>Подсеть</code></em> со свойством типа <em class="parameter"><code>Список
+            свойств для разбиения</code></em> с целью детализации статистики
+            по каждому адресу подсети. Такая же конструкция справедлива для
+            связи свойств типа <em class="parameter"><code>Серия номеров</code></em> и
+            <em class="parameter"><code>Список свойств для разбиения</code></em> с целью
+            детализации статистики по каждому номеру серии.</p></div></div><p><br class="example-break"></p></dd><dt><span class="term">Тарифный план</span></dt><dd><p></p></dd><dt><span class="term">Текстовое поле</span></dt><dd><p></p></dd><dt><span class="term">Тип дня</span></dt><dd><p></p></dd><dt><span class="term">Услуга</span></dt><dd><p></p></dd><dt><span class="term">Числовой</span></dt><dd><p>Значением свойства является число.</p></dd></dl></div></div><HR><p class="copyright">Copyright © 2001-2016 Stack Soft JSC</p><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="additional_attributes_rules.html">Пред.</a> </td><td width="20%" align="center"><a accesskey="u" href="billing_common_rules_description.html">Уровень выше</a></td><td width="40%" align="right"> <a accesskey="n" href="billing_online_help.html">След.</a></td></tr><tr><td width="40%" align="left" valign="top">7.3. Создание и отображение дополнительных атрибутов </td><td width="20%" align="center"><a accesskey="h" href="index.html">Начало</a></td><td width="40%" align="right" valign="top"> АСР <span class="quote">«<span class="quote">Онима</span>»</span>. Графический интерфейс</td></tr></table></div></body></html>

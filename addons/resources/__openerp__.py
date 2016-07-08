@@ -16,6 +16,7 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'data/property_types.xml;,'
     ],
     'demo': [
         'demo/demo.xml',

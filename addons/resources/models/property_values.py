@@ -3,12 +3,12 @@
 from openerp import models, fields, api
 
 class PropertyValues(models.Model):
-    _name = 'project.property_values'
+    _name = 'resources.property_values'
 
     resource_id = fields.Many2one('resources.resources', 'Resource', select=True)
     property_id = fields.Many2one('resources.properties', 'Property', select=True)
     _linked_value_id = fields.Many2one('resources.property_values', 'Linked value')
-    value = fields.Char(compute='_get_value')
+    value = fields.Char() #(compute='_get_value', store=True)
     real_value = fields.Char()
     value_num = fields.Integer()
     value_type = fields.Selection([

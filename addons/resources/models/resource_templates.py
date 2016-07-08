@@ -8,3 +8,5 @@ class ResourceTemplates(models.Model):
     category_id = fields.Many2one('resources.categories', 'Category', select=True)
     name = fields.Char(string="Title", required=True)
     caption = fields.Text()
+
+    property_ids = fields.One2many('resources.resource_properties', 'template_id', string='Properties')
