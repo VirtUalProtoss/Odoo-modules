@@ -2,6 +2,7 @@
     <data>
         <record id="resource_template_shift_register" model="resources.resource_templates">
             <field name="name">Сдвиговый регистр</field>
+            <field name="category_id" ref="category_radio_part_chips"/>
         </record>
 
 
