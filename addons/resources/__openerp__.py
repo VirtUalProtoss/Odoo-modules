@@ -17,6 +17,9 @@
         'views/views.xml',
         'views/templates.xml',
         'data/property_types.xml',
+        'data/properties.xml',
+        'data/categories.xml',
+        'data/resource_templates.xml',
     ],
     'demo': [
         'demo/demo.xml',

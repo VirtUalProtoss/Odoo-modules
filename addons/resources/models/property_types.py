@@ -7,3 +7,4 @@ class PropertyTypes(models.Model):
 
     #parent_id = fields.Integer()
     name = fields.Char(string="Title", required=True)
+    caption = fields.Char(string="Description")

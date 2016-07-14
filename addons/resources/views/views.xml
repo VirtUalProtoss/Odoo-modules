@@ -12,6 +12,19 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="resources.resource_templates_category_list">
+      <field name="name">resource_templates_category_list</field>
+      <field name="model">resources.resource_templates</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="category_id"/>
+              <field name="name"/>
+              <field name="caption"/>
+<!--            <field name="need_count" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
+        </tree>
+      </field>
+    </record>
+
     <record model="ir.ui.view" id="resources.property_values_tree_view">
         <field name="name">property_values.tree</field>
         <field name="model">resources.property_values</field>
@@ -20,6 +33,17 @@
                 <field name="resource_id"/>
                 <field name="property_id"/>
                 <field name="value"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="resources.categories_tree_view">
+        <field name="name">categories.tree</field>
+        <field name="model">resources.categories</field>
+        <field name="arch" type="xml">
+            <tree string="Categories">
+                <field name="display_name"/>
+                <field name="caption"/>
             </tree>
         </field>
     </record>
@@ -42,7 +66,7 @@
                         <page string="Properties">
                             <field name="property_ids">
                                 <tree string="Properties">
-                                    <field name="name"/>
+                                    <field name="display_name"/>
                                     <field name="property_id"/>
                                 </tree>
                             </field>
@@ -101,9 +125,16 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+
     <record model="ir.actions.act_window" id="properties_action_window">
         <field name="name">properties</field>
         <field name="res_model">resources.properties</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="resource_properties_action_window">
+        <field name="name">property_values</field>
+        <field name="res_model">resources.property_values</field>
         <field name="view_mode">tree,form</field>
     </record>
 
@@ -126,5 +157,6 @@
     <menuitem name="Категории" id="resources.categories" parent="resources.resource_root" action="resource_categories_action_window"/>
     <menuitem name="Шаблоны ресурсов" id="resources.resource_templates" parent="resources.resource_root" action="resource_templates_action_window"/>
     <menuitem name="Ресурсы" id="resources.resources" parent="resources.resource_root" action="resources_action_window"/>
+    <menuitem name="Свойства ресурсов" id="resources.resource_properties" parent="resources.resource_root" action="resource_properties_action_window"/>
   </data>
 </openerp>

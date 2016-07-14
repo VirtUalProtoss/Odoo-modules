@@ -1,0 +1,40 @@
+<openerp>
+    <data>
+        <record id="resource_template_shift_register" model="resources.resource_templates">
+            <field name="name">Сдвиговый регистр</field>
+        </record>
+
+
+        <record id="resource_template_shift_register_case_type" model="resources.resource_properties">
+            <field name="name">resource_template_shift_register_case_type</field>
+            <field name="template_id" ref="resource_template_shift_register"/>
+            <field name="property_id" ref="properties_case_type"/>
+        </record>
+        <!--
+        <record id="resource_template_shift_register_model" model="resources.resource_properties">
+            <field name="template_id" ref="resource_template_shift_register"/>
+            <field name="property_id" ref="properties_model"/>
+        </record>
+
+        <record id="resource_template_shift_register_producer" model="resources.resource_properties">
+            <field name="template_id" ref="resource_template_shift_register"/>
+            <field name="property_id" ref="properties_producer"/>
+        </record>
+
+        <record id="resource_template_shift_register_power_supply" model="resources.resource_properties">
+            <field name="template_id" ref="resource_template_shift_register"/>
+            <field name="property_id" ref="properties_power_supply"/>
+        </record>
+
+        <record id="resource_template_shift_register_type_in" model="resources.resource_properties">
+            <field name="template_id" ref="resource_template_shift_register"/>
+            <field name="property_id" ref="properties_type_in"/>
+        </record>
+
+        <record id="resource_template_shift_register_type_out" model="resources.resource_properties">
+            <field name="template_id" ref="resource_template_shift_register"/>
+            <field name="property_id" ref="properties_type_out"/>
+        </record>
+        -->
+    </data>
+</openerp>

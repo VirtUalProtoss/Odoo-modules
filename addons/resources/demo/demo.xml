@@ -29,5 +29,6 @@
             <field name="parent_id" ref="project.resource_types_blueprint"/>
         </record>
         -->
+
     </data>
 </openerp>

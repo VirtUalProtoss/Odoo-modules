@@ -1,0 +1,8 @@
+<openerp>
+    <data>
+        <record id="resource_templates_sn74hc165n" model="resources.resource_templates">
+            <field name="name">SN74HC165N</field>
+            <field name="category_id" ref="resources.category_radio_part_chips"/>
+        </record>
+    </data>
+</openerp>

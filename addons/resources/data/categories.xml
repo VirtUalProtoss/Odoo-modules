@@ -1,0 +1,50 @@
+<openerp>
+    <data>
+        <record id="category_materials" model="resources.categories">
+            <field name="name">Материалы</field>
+        </record>
+
+        <record id="category_tools" model="resources.categories">
+            <field name="name">Инструменты</field>
+        </record>
+
+        <record id="category_technologies" model="resources.categories">
+            <field name="name">Технологии</field>
+        </record>
+
+        <record id="category_blueprints" model="resources.categories">
+            <field name="name">Чертежи</field>
+        </record>
+
+        <record id="category_blueprints_build" model="resources.categories">
+            <field name="name">Строительные</field>
+            <field name="parent_id" ref="category_blueprints"/>
+        </record>
+
+        <record id="category_blueprints_production" model="resources.categories">
+            <field name="name">Производственные</field>
+            <field name="parent_id" ref="category_blueprints"/>
+        </record>
+
+        <record id="category_radio_parts" model="resources.categories">
+            <field name="name">Радиодетали</field>
+            <field name="parent_id" ref="category_materials"/>
+        </record>
+
+        <record id="category_radio_part_chips" model="resources.categories">
+            <field name="name">Микросхемы</field>
+            <field name="parent_id" ref="category_radio_parts"/>
+        </record>
+
+        <record id="category_radio_part_transistors" model="resources.categories">
+            <field name="name">Транзисторы</field>
+            <field name="parent_id" ref="category_radio_parts"/>
+        </record>
+
+        <record id="category_radio_part_resistors" model="resources.categories">
+            <field name="name">Резисторы</field>
+            <field name="parent_id" ref="category_radio_parts"/>
+        </record>
+
+    </data>
+</openerp>

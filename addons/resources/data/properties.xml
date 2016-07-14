@@ -1,0 +1,39 @@
+<openerp>
+    <data>
+        <record id="properties_size" model="resources.properties">
+            <field name="name">Размер</field>
+            <field name="type_id" ref="property_type_integer"/>
+        </record>
+
+        <record id="properties_case_type" model="resources.properties">
+            <field name="name">Тип корпуса</field>
+            <field name="type_id" ref="property_type_string"/>
+        </record>
+
+        <record id="properties_model" model="resources.properties">
+            <field name="name">Модель</field>
+            <field name="type_id" ref="property_type_string"/>
+        </record>
+
+        <record id="properties_producer" model="resources.properties">
+            <field name="name">Производитель</field>
+            <field name="type_id" ref="property_type_string"/>
+        </record>
+
+        <record id="properties_power_supply" model="resources.properties">
+            <field name="name">Напряжение питания</field>
+            <field name="type_id" ref="property_type_float"/>
+        </record>
+
+        <record id="properties_type_in" model="resources.properties">
+            <field name="name">Тип входа</field>
+            <field name="type_id" ref="property_type_string"/>
+        </record>
+
+        <record id="properties_type_out" model="resources.properties">
+            <field name="name">Тип выхода</field>
+            <field name="type_id" ref="property_type_string"/>
+        </record>
+
+    </data>
+</openerp>

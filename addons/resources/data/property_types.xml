@@ -4,6 +4,11 @@
             <field name="name">Целое число</field>
         </record>
 
+        <record id="property_type_float" model="resources.property_types">
+            <field name="name">Число</field>
+            <field name="caption">Число с плавающей точкой</field>
+        </record>
+
         <record id="property_type_list" model="resources.property_types">
             <field name="name">Список</field>
         </record>
@@ -11,5 +16,41 @@
         <record id="property_type_checkbox" model="resources.property_types">
             <field name="name">Флажок</field>
         </record>
+
+        <record id="property_type_function" model="resources.property_types">
+            <field name="name">Функция</field>
+            <field name="caption">Выполнение пользовательских функций</field>
+        </record>
+
+        <record id="property_type_string" model="resources.property_types">
+            <field name="name">Строка</field>
+        </record>
+
+        <record id="property_type_ip_address" model="resources.property_types">
+            <field name="name">IP-адрес</field>
+        </record>
+
+        <record id="property_type_netmask" model="resources.property_types">
+            <field name="name">IP-подсеть</field>
+        </record>
+
+        <record id="property_type_comment" model="resources.property_types">
+            <field name="name">Комментарий</field>
+            <field name="caption">Скрытое, формирует название ресурса</field>
+        </record>
+
+        <record id="property_type_hidden" model="resources.property_types">
+            <field name="name">Скрытое</field>
+            <field name="caption">Скрытое свойство, вычисляется функцией</field>
+        </record>
+
+        <record id="property_type_date" model="resources.property_types">
+            <field name="name">Дата</field>
+        </record>
+
+        <record id="property_type_url" model="resources.property_types">
+            <field name="name">URL</field>
+        </record>
+
     </data>
 </openerp>
