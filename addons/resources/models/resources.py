@@ -14,13 +14,32 @@ class Resources(models.Model):
 
     @api.onchange('template_id')
     def _fill_properties(self):
-        if self.id:
-            self.caption = self.template_id.name
-            #props = ['properties_case_type', 'properties_model']
-            for prop in self.template_id.property_ids:
-                self.env['resources.property_values'].create({
-                    'resource_id': self.id,
-                    'property_id': prop.property_id.id,
-                    'name': prop.property_id.name,
-                })
-                self.caption += ' ' + prop.property_id.name
+        #if self.id:
+        self.caption = self.template_id.name
+        #props = ['properties_case_type', 'properties_model']
+        for prop in self.template_id.property_ids:
+            #self.env['resources.property_values'].create({
+            self.property_ids += self.property_ids.new({
+                #self.property_ids.create({
+                'resource_id': models.NewId,
+                'property_id': prop.property_id.id,
+                #'name': prop.name,
+            })
+            self.caption += ' ' + prop.name
+        self.reload_page()
+
+    @api.multi
+    def reload_page(self):
+        model_obj = self.env['ir.model.data']
+        data_id = model_obj._get_id('resources', 'resources_form_view')
+        view_id = model_obj.browse(data_id).res_id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Properties',
+            'res_model': 'resources.property_values',
+            'view_type': 'tree',
+            'view_mode': 'form',
+            'view_id': view_id,
+            'target': 'current',
+            'nodestroy': True,
+        }

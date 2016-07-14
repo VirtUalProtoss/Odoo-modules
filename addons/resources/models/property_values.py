@@ -15,7 +15,7 @@ class PropertyValues(models.Model):
         ('V', 'Value'),
         ('DV', 'Depend Value'),
         ('MDV', 'Multi Depend Value'),
-    ])
+    ], default='V')
 
     @api.depends('real_value', 'value_type', '_linked_value_id.value')
     def _get_value(self):
