@@ -1,162 +1,163 @@
 <openerp>
-  <data>
-    <!-- explicit list view definition -->
-    <record model="ir.ui.view" id="resources.resources_list">
-      <field name="name">resources_list</field>
-      <field name="model">resources.resources</field>
-      <field name="arch" type="xml">
-        <tree>
-            <field name="name"/>
-<!--            <field name="need_count" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
-        </tree>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="resources.resource_templates_category_list">
-      <field name="name">resource_templates_category_list</field>
-      <field name="model">resources.resource_templates</field>
-      <field name="arch" type="xml">
-          <tree>
-              <field name="category_id"/>
-              <field name="name"/>
-              <field name="caption"/>
-<!--            <field name="need_count" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
-        </tree>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="resources.property_values_tree_view">
-        <field name="name">property_values.tree</field>
-        <field name="model">resources.property_values</field>
-        <field name="arch" type="xml">
-            <tree string="Property values Tree">
-                <field name="resource_id"/>
-                <field name="property_id"/>
-                <field name="value"/>
+    <data>
+        <record model="ir.ui.view" id="resources.resources_list">
+            <field name="name">resources_list</field>
+            <field name="model">resources.resources</field>
+            <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            <!--            <field name="need_count" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
             </tree>
-        </field>
-    </record>
+            </field>
+        </record>
 
-    <record model="ir.ui.view" id="resources.categories_tree_view">
-        <field name="name">categories.tree</field>
-        <field name="model">resources.categories</field>
-        <field name="arch" type="xml">
-            <tree string="Categories">
-                <field name="display_name"/>
-                <field name="caption"/>
+        <record model="ir.ui.view" id="resources.resource_templates_category_list">
+          <field name="name">resource_templates_category_list</field>
+          <field name="model">resources.resource_templates</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="category_id"/>
+                  <field name="name"/>
+                  <field name="type_id"/>
+                  <field name="caption"/>
+        <!--            <field name="need_count" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
             </tree>
-        </field>
-    </record>
+          </field>
+        </record>
 
-    <record model="ir.ui.view" id="resources.resource_templates_form_view">
-        <field name="name">resources.form</field>
-        <field name="model">resources.resource_templates</field>
-        <field name="arch" type="xml">
-            <form string="Resource template form">
-                <sheet>
-                    <group>
-                        <field name="category_id"/>
-                        <field name="name"/>
-                        <!--<field name="product_id" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
-                    </group>
-                    <notebook>
-                        <page string="Caption">
-                            <field name="caption"/>
-                        </page>
-                        <page string="Properties">
-                            <field name="property_ids">
-                                <tree string="Properties">
-                                    <field name="display_name"/>
-                                    <field name="property_id"/>
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
-                </sheet>
-            </form>
-        </field>
-    </record>
+        <record model="ir.ui.view" id="resources.property_values_tree_view">
+            <field name="name">property_values.tree</field>
+            <field name="model">resources.property_values</field>
+            <field name="arch" type="xml">
+                <tree string="Property values Tree">
+                    <field name="resource_id"/>
+                    <field name="property_id"/>
+                    <field name="value"/>
+                </tree>
+            </field>
+        </record>
 
-    <record model="ir.ui.view" id="resources.resources_form_view">
-        <field name="name">resources.form</field>
-        <field name="model">resources.resources</field>
-        <field name="arch" type="xml">
-            <form string="Resources Form">
-                <sheet>
-                    <group>
-                        <field name="template_id"/>
-                        <field name="name"/>
-                        <!--<field name="product_id" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
-                    </group>
-                    <notebook>
-                        <page string="Caption">
-                            <field name="caption"/>
-                        </page>
-                        <page string="Properties">
-                            <field name="property_ids">
-                                <tree string="Properties">
-                                    <field name="property_id"/>
-                                    <field name="value"/>
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
-                </sheet>
-            </form>
-        </field>
-    </record>
+        <record model="ir.ui.view" id="resources.categories_tree_view">
+            <field name="name">categories.tree</field>
+            <field name="model">resources.categories</field>
+            <field name="arch" type="xml">
+                <tree string="Categories">
+                    <field name="display_name"/>
+                    <field name="caption"/>
+                </tree>
+            </field>
+        </record>
 
-    <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="resources_action_window">
-        <field name="name">resources</field>
-        <field name="res_model">resources.resources</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+        <record model="ir.ui.view" id="resources.resource_templates_form_view">
+            <field name="name">resources.form</field>
+            <field name="model">resources.resource_templates</field>
+            <field name="arch" type="xml">
+                <form string="Resource template form">
+                    <sheet>
+                        <group>
+                            <field name="category_id"/>
+                            <field name="name"/>
+                            <field name="type_id"/>
+                            <!--<field name="product_id" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
+                        </group>
+                        <notebook>
+                            <page string="Caption">
+                                <field name="caption"/>
+                            </page>
+                            <page string="Properties">
+                                <field name="property_ids">
+                                    <tree string="Properties">
+                                        <field name="display_name"/>
+                                        <field name="property_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <record model="ir.actions.act_window" id="resource_categories_action_window">
-        <field name="name">resource_categories</field>
-        <field name="res_model">resources.categories</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+        <record model="ir.ui.view" id="resources.resources_form_view">
+            <field name="name">resources.form</field>
+            <field name="model">resources.resources</field>
+            <field name="arch" type="xml">
+                <form string="Resources Form">
+                    <sheet>
+                        <group>
+                            <field name="template_id"/>
+                            <field name="name"/>
+                            <!--<field name="product_id" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
+                        </group>
+                        <notebook>
+                            <page string="Caption">
+                                <field name="caption"/>
+                            </page>
+                            <page string="Properties">
+                                <field name="property_ids">
+                                    <tree string="Properties">
+                                        <field name="property_id"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <record model="ir.actions.act_window" id="resource_templates_action_window">
-        <field name="name">resource_templates</field>
-        <field name="res_model">resources.resource_templates</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="resources_action_window">
+            <field name="name">resources</field>
+            <field name="res_model">resources.resources</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="resource_categories_action_window">
+            <field name="name">resource_categories</field>
+            <field name="res_model">resources.categories</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="resource_templates_action_window">
+            <field name="name">resource_templates</field>
+            <field name="res_model">resources.resource_templates</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
 
-    <record model="ir.actions.act_window" id="properties_action_window">
-        <field name="name">properties</field>
-        <field name="res_model">resources.properties</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+        <record model="ir.actions.act_window" id="properties_action_window">
+            <field name="name">properties</field>
+            <field name="res_model">resources.properties</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-    <record model="ir.actions.act_window" id="resource_properties_action_window">
-        <field name="name">property_values</field>
-        <field name="res_model">resources.property_values</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+        <record model="ir.actions.act_window" id="resource_properties_action_window">
+            <field name="name">property_values</field>
+            <field name="res_model">resources.property_values</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-    <record model="ir.actions.act_window" id="property_types_action_window">
-        <field name="name">property_types</field>
-        <field name="res_model">resources.property_types</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+        <record model="ir.actions.act_window" id="property_types_action_window">
+            <field name="name">property_types</field>
+            <field name="res_model">resources.property_types</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-    <!-- Top menu item -->
-    <menuitem name="Управление ресурсами" id="resources.resources_root"/>
-    <!-- menu categories -->
-    <menuitem name="Свойства" id="resources.property_root" parent="resources.resources_root"/>
-    <menuitem name="Ресурсы" id="resources.resource_root" parent="resources.resources_root"/>
-    
-    <!-- actions -->
-  
-    <menuitem name="Типы свойств" id="resources.property_types" parent="resources.property_root" action="property_types_action_window"/>
-    <menuitem name="Свойства" id="resources.properties" parent="resources.property_root" action="properties_action_window"/>
-    <menuitem name="Категории" id="resources.categories" parent="resources.resource_root" action="resource_categories_action_window"/>
-    <menuitem name="Шаблоны ресурсов" id="resources.resource_templates" parent="resources.resource_root" action="resource_templates_action_window"/>
-    <menuitem name="Ресурсы" id="resources.resources" parent="resources.resource_root" action="resources_action_window"/>
-    <menuitem name="Свойства ресурсов" id="resources.resource_properties" parent="resources.resource_root" action="resource_properties_action_window"/>
-  </data>
+        <!-- Top menu item -->
+        <menuitem name="Управление ресурсами" id="resources.resources_root"/>
+        <!-- menu categories -->
+        <menuitem name="Свойства" id="resources.property_root" parent="resources.resources_root"/>
+        <menuitem name="Ресурсы" id="resources.resource_root" parent="resources.resources_root"/>
+
+        <!-- actions -->
+
+        <menuitem name="Типы свойств" id="resources.property_types" parent="resources.property_root" action="property_types_action_window"/>
+        <menuitem name="Свойства" id="resources.properties" parent="resources.property_root" action="properties_action_window"/>
+        <menuitem name="Категории" id="resources.categories" parent="resources.resource_root" action="resource_categories_action_window"/>
+        <menuitem name="Шаблоны ресурсов" id="resources.resource_templates" parent="resources.resource_root" action="resource_templates_action_window"/>
+        <menuitem name="Ресурсы" id="resources.resources" parent="resources.resource_root" action="resources_action_window"/>
+        <menuitem name="Свойства ресурсов" id="resources.resource_properties" parent="resources.resource_root" action="resource_properties_action_window"/>
+    </data>
 </openerp>

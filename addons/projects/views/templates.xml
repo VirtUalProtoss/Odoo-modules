@@ -1,0 +1,51 @@
+<openerp>
+    <data>
+        <record id="work_type_skip" model="projects.work_types">
+            <field name="name">Бездействие</field>
+        </record>
+
+        <record id="work_type_control" model="projects.work_types">
+            <field name="name">Контроль</field>
+        </record>
+
+        <record id="work_type_conference" model="projects.work_types">
+            <field name="name">Конференция</field>
+        </record>
+
+        <record id="work_type_normal" model="projects.work_types">
+            <field name="name">Обычная</field>
+        </record>
+
+        <record id="work_type_wait" model="projects.work_types">
+            <field name="name">Ожидание</field>
+        </record>
+
+        <record id="work_type_intermediate_result" model="projects.work_types">
+            <field name="name">Промежуточный результат</field>
+        </record>
+
+        <record id="work_type_agreement" model="projects.work_types">
+            <field name="name">Согласование</field>
+        </record>
+
+        <record id="project_type_design_software" model="projects.project_types">
+            <field name="name">Разработка ПО</field>
+        </record>
+
+        <record id="project_type_design" model="projects.project_types">
+            <field name="name">Разработка</field>
+        </record>
+
+        <record id="project_type_build" model="projects.project_types">
+            <field name="name">Строительство</field>
+        </record>
+
+        <record id="project_type_production" model="projects.project_types">
+            <field name="name">Производство</field>
+        </record>
+
+        <record id="project_type_research" model="projects.project_types">
+            <field name="name">Исследования</field>
+        </record>
+    </data>
+</openerp>

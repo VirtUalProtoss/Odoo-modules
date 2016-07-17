@@ -1,23 +1,19 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Проекты",
+    'name': "Инциденты",
     'summary': """
-        Управление проектами""",
+        Решение проблем пользователей""",
     'description': """
-        Управление проектами.
+        Решение проблем пользователей.
     """,
     'author': "MGLife",
     'website': "http://www.mglife.ru",
     'category': 'Uncategorized',
     'version': '0.0.1',
-    'depends': ['base', 'hr'],
+    'depends': ['base', 'hr', 'projects'],
     'application': True,
     'data': [
         # 'security/ir.model.access.csv',
         'views/views.xml',
-        'views/templates.xml',
-    ],
-    'demo': [
-        'data/test_data.xml',
     ],
 }

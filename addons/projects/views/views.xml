@@ -1,28 +1,102 @@
 <openerp>
-  <data>
-    <!-- explicit list view definition -->
-    <record model="ir.ui.view" id="projects.projects_list">
-      <field name="name">projects_list</field>
-      <field name="model">project.resources</field>
-      <field name="arch" type="xml">
-        <tree>
-            <field name="task_id"/>
-        </tree>
-      </field>
-    </record>
+    <data>
+        <!-- Forms -->
+        <record model="ir.ui.view" id="projects.projects_list">
+            <field name="name">projects_list</field>
+            <field name="model">projects.projects</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="type_id"/>
+                    <field name="name"/>
+                    <field name="owner_id"/>
+                    <field name="task_ids">
+                        <tree>
+                            <field name="name"/>
+                            <field name="owner_id"/>
+                            <field name="date_start"/>
+                        </tree>
+                    </field>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="projects.projects_form">
+            <field name="name">projects_form</field>
+            <field name="model">projects.projects</field>
+            <field name="arch" type="xml">
+                <form string="Project">
+                    <sheet>
+                        <group>
+                        <field name="type_id"/>
+                        <field name="name"/>
+                        <field name="owner_id"/>
+                        </group>
+                        <group>
+                        <field name="task_ids">
+                            <tree string="Tasks">
+                                <field name="name"/>
+                                <field name="owner_id"/>
+                                <field name="date_start"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="projects.tasks_list">
+            <field name="name">tasks_list</field>
+            <field name="model">projects.tasks</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="project_id"/>
+                    <button string="test" name="btn_test"/>
+                    <field name="name"/>
+                    <field name="owner_id"/>
+                    <field name="date_start"/>
+                </tree>
+            </field>
+        </record>
 
 
-    <record id="view_tasks_gantt" model="ir.ui.view">
-        <field name="name">projects.projects.tasks.gantt</field>
-        <field name="model">projects.tasks</field>
-        <field name="arch" type="xml">
-            <gantt date_start="projects.tasks.date_start"/>
-        </field>
-    </record>
+        <!-- Actions -->
+        <record model="ir.actions.act_window" id="projects_action_window">
+            <field name="name">projects</field>
+            <field name="res_model">projects.projects</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="tasks_action_window">
+            <field name="name">tasks</field>
+            <field name="res_model">projects.tasks</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="project_types_action_window">
+            <field name="name">project_types_action_window</field>
+            <field name="res_model">projects.project_types</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="work_types_action_window">
+            <field name="name">work_types_action_window</field>
+            <field name="res_model">projects.work_types</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="image" widget='image' class="oe_avatar" options='{"preview_image": "image_medium"}'/>-->
+        </record>
 
 
-    <!-- Top menu item -->
-    <menuitem name="Проекты" id="projects.root" parent="base.menu_main_pm"/>
+        <!-- Menus -->
+        <menuitem name="Проекты" id="projects.root"/>
 
-  </data>
+        <menuitem name="Проекты" id="projects.projects" parent="projects.root" action="projects_action_window"/>
+
+        <menuitem name="Задачи" id="projects.tasks" parent="projects.root" action="tasks_action_window"/>
+
+        <menuitem name="Типы проектов" id="projects.project_types" parent="projects.root" action="project_types_action_window"/>
+
+        <menuitem name="Типы дел" id="projects.work_types" parent="projects.root" action="work_types_action_window"/>
+
+    </data>
 </openerp>

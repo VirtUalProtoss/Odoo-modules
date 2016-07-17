@@ -6,6 +6,7 @@ class ResourceTemplates(models.Model):
     _name = 'resources.resource_templates'
 
     category_id = fields.Many2one('resources.categories', 'Category', select=True)
+    type_id = fields.Many2one('resources.template_types', 'Type', select=True, required=True)
     name = fields.Char(string="Title", required=True)
     caption = fields.Text()
 

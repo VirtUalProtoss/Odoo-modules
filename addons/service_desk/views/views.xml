@@ -1,0 +1,29 @@
+<openerp>
+    <data>
+        <!-- Forms -->
+        <record model="ir.ui.view" id="service_desk.incidents_list">
+            <field name="name">incidents_list</field>
+            <field name="model">service_desk.incidents</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="task_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Actions -->
+        <record model="ir.actions.act_window" id="projects_action_window">
+            <field name="name">resources</field>
+            <field name="res_model">resources.resources</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Menus -->
+        <menuitem name="Инциденты" id="service_desk.incidents" parent="projects.root" action="service_desk.incidents_list"/>
+        <menuitem name="Категории" id="service_desk.categories" parent="service_desk.incidents" action="sd_categories_action_window"/>
+        <menuitem name="Типы" id="service_desk.types" parent="service_desk.incidents" action="sd_types_action_window"/>
+        <menuitem name="Приоритеты" id="service_desk.priorities" parent="service_desk.incidents" action="sd_priorities_action_window"/>
+    </data>
+</openerp>

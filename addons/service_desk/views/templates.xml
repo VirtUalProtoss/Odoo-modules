@@ -1,0 +1,50 @@
+<openerp>
+    <data>
+        <record id="priority_critical" model="service_desk.priorities">
+            <field name="name">Critical</field>
+            <field name="description">критический - существующая проблема парализует работу бизнеса и тем самым наносит материальный ущерб компании. Срок решения - 1 час с момента обращения</field>
+            <field name="planned_time">01:00:00</field>
+        </record>
+        
+        <record id="priority_high" model="service_desk.prioritiess">
+            <field name="name">High</field>
+            <field name="description">высокий - ошибка, искажающая конечный результат, делающая невозможным выполнение сотрудником текущих функций. Нет наличия и возможности использования обходного пути, который можно найти самостоятельно, или другого способа решения. Срок решения - сутки с момента обращения</field>
+            <field name="planned_time">24:00:00</field>
+        </record>
+        
+        <record id="priority_average" model="service_desk.priorities">
+            <field name="name">Average</field>
+            <field name="description">средний - промежуточный приоритет, указывается при необходимости решения проблемы или предоставления услуг в трехдневный срок (справки обязательно должны быть предоставлены в трехдневный срок по законодательству РФ), при этом влияние причины инцидента на текущие функции сотрудника не делает их выполнение невозможным</field>
+            <field name="planned_time">3 00:00:00</field>
+        </record>
+        
+        <record id="priority_normal" model="service_desk.priorities">
+            <field name="name">Normal</field>
+            <field name="description">обычный - это ошибки/изменения или консультации, которые не влияют на конечный результат, так как существует, найден или предложен обходной путь или резервный способ решения. Восстановление стандартных функций сотрудника обязательно в течение недели. Срок решения - 7 дней</field>
+            <field name="planned_time">7 00:00:00</field>
+        </record>
+        
+        <record id="priority_below_normal" model="service_desk.priorities">
+            <field name="name">Below Normal</field>
+            <field name="description">ниже обычного - это ошибки/изменения или консультации, которые не влияют на конечный результат, так как существует, найден или предложен обходной путь или резервный способ решения. Срок решения - 14 дней</field>
+            <field name="planned_time">14 00:00:00</field>
+        </record>
+        
+        <record id="priority_low" model="service_desk.priorities">
+            <field name="name">Low</field>
+            <field name="description">низкий - это различные улучшения или действия, которые не оказывают существенное влияния на текущие бизнес-процессы компании, но в дальнейшем могут ускорить выполнение определенных функций, повысить их качество. Срок решения - до 1 месяца</field>
+            <field name="planned_time">30 00:00:00</field>
+        </record>
+        
+        <record id="priority_very_low" model="service_desk.priorities">
+            <field name="name">Very Low</field>
+            <field name="description">очень низкий - причины создания инцидента оказывают несущественное влияние на бизнес-процессы компании, не оказывают влияния на улучшения показателей бизнес-процессов компании в будущем, срок выполнения инцидентов - 2 месяца</field>
+            <field name="planned_time">60 00:00:00</field>
+        </record>
+
+        <record id="category_it" model="service_desk.categories">
+            <field name="name">IT</field>
+            <field name="description"></field>
+        </record>
+    </data>
+</openerp>

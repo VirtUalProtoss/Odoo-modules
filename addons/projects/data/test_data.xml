@@ -1,0 +1,18 @@
+<openerp>
+    <data>
+        <record model="projects.projects" id="project_manager">
+            <field name="name">Проектный менеджер</field>
+            <field name="type_id" ref="project_type_design_software"/>
+        </record>
+
+        <record model="projects.tasks" id="task_project_module">
+            <field name="name">Модуль "Проекты"</field>
+            <field name="project_id" ref="project_manager"/>
+        </record>
+
+        <record model="projects.tasks" id="task_resource_module">
+            <field name="name">Модуль "Ресурсы"</field>
+            <field name="project_id" ref="project_manager"/>
+        </record>
+    </data>
+</openerp>
