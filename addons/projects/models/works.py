@@ -13,6 +13,9 @@ class Works(models.Model):
     after_in_that_day = fields.Boolean(default=False)
     name = fields.Char()
     description = fields.Text()
-    start_date = fields.Date()
-    planned_time = fields.Integer()
+    date_start = fields.Date()
+    date_end = fields.Date()
+    planned_time = fields.Date()
     planned_cost = fields.Integer()
+
+    comment_ids = fields.One2many('projects.work_comments', 'work_id', string='Comments')

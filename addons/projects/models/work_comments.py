@@ -8,4 +8,5 @@ class WorkComments(models.Model):
 
     work_id = fields.Many2one('projects.works', 'Work', select=True)
     employee_id = fields.Many2one('hr.employee', 'Employee', select=True)
+    date_comment = fields.Datetime()
     text = fields.Text()

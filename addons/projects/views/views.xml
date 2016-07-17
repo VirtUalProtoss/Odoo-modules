@@ -45,6 +45,66 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="projects.task_form">
+            <field name="name">task_form</field>
+            <field name="model">projects.tasks</field>
+            <field name="arch" type="xml">
+                <form string="Task">
+                    <!--<sheet> -->
+                        <group>
+                            <notebook>
+                                <page string="Info">
+                                    <div class="oe_title">
+                                        <h1 class="o_row">
+                                            <field name="name" placeholder="Task Title..."/>
+                                        </h1>
+                                    </div>
+                                    <field name="project_id" string="Project"/>
+                                    <field name="description" string="Desription"/>
+                                    <field name="owner_id" string="User"/>
+                                    <field name="date_start" string="Start Date"/>
+                                    <field name="date_end" string="End Date"/>
+                                </page>
+                                <page string="Links">
+
+                                </page>
+                                <page string="History">
+
+                                </page>
+                            </notebook>
+                        </group>
+                        <group col="2">
+                            <group>
+                                <field name="work_ids" nolabel="1">
+                                    <tree string="Works">
+                                        <field name="name"/>
+                                        <field name="owner_id"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                    </tree>
+                            </field>
+                            </group>
+                            <!--
+                            <group string="">
+                                <field name="work_ids" nolabel="1">
+                                    <tree>
+                                        <field name="comment_ids" nolabel="1">
+                                            <tree>
+                                                <field name="employee_id"/>
+                                                <field name="date_comment"/>
+                                                <field name="text"/>
+                                            </tree>
+                                        </field>
+                                    </tree>
+                                </field>
+                            </group>
+                            -->
+                        </group>
+                    <!--</sheet> -->
+                </form>
+            </field>
+        </record>
+
         <record model="ir.ui.view" id="projects.tasks_list">
             <field name="name">tasks_list</field>
             <field name="model">projects.tasks</field>
