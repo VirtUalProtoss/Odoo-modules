@@ -100,6 +100,7 @@
                     <field name="name"/>
                     <field name="owner_id"/>
                     <field name="date_start"/>
+                    <field name="planned_time"/>
                 </tree>
             </field>
         </record>
@@ -113,6 +114,7 @@
                     <field name="name"/>
                     <field name="owner_id"/>
                     <field name="date_start"/>
+                    <field name="planned_time"/>
                 </tree>
             </field>
         </record>
@@ -127,6 +129,7 @@
                         <group>
                             <notebook>
                                 <page string="Info">
+                                    <group>
                                     <div class="oe_title">
                                         <h1 class="o_row">
                                             <field name="name" placeholder="Work Title..."/>
@@ -134,10 +137,13 @@
                                     </div>
                                     <field name="task_id" string="Task"/>
                                     <field name="type_id" string="Type"/>
-                                    <field name="description" string="Desription"/>
+                                    <field name="description" string="Desription" type="html"/>
                                     <field name="owner_id" string="User"/>
                                     <field name="date_start" string="Start Date"/>
                                     <field name="date_end" string="End Date"/>
+                                    <field name="planned_time"/>
+                                    <field name="planned_cost" widget="monetary"/>
+                                    </group>
                                 </page>
                                 <page string="Files">
 
