@@ -18,6 +18,6 @@
         'views/templates.xml',
     ],
     'demo': [
-        'data/test_data.xml',
+        'data/mglife.xml',
     ],
 }

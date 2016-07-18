@@ -84,21 +84,6 @@
                                     </tree>
                             </field>
                             </group>
-                            <!--
-                            <group string="">
-                                <field name="work_ids" nolabel="1">
-                                    <tree>
-                                        <field name="comment_ids" nolabel="1">
-                                            <tree>
-                                                <field name="employee_id"/>
-                                                <field name="date_comment"/>
-                                                <field name="text"/>
-                                            </tree>
-                                        </field>
-                                    </tree>
-                                </field>
-                            </group>
-                            -->
                         </group>
                     <!--</sheet> -->
                 </form>
@@ -119,6 +104,69 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="projects.works_list">
+            <field name="name">works_list</field>
+            <field name="model">projects.works</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="task_id"/>
+                    <field name="name"/>
+                    <field name="owner_id"/>
+                    <field name="date_start"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="projects.work_form">
+            <field name="name">work_form</field>
+            <field name="model">projects.works</field>
+            <field name="arch" type="xml">
+                <form string="Work">
+                    <sheet>
+                    <group col="2">
+                        <group>
+                            <notebook>
+                                <page string="Info">
+                                    <div class="oe_title">
+                                        <h1 class="o_row">
+                                            <field name="name" placeholder="Work Title..."/>
+                                        </h1>
+                                    </div>
+                                    <field name="task_id" string="Task"/>
+                                    <field name="type_id" string="Type"/>
+                                    <field name="description" string="Desription"/>
+                                    <field name="owner_id" string="User"/>
+                                    <field name="date_start" string="Start Date"/>
+                                    <field name="date_end" string="End Date"/>
+                                </page>
+                                <page string="Files">
+
+                                </page>
+                                <page string="Links">
+
+                                </page>
+                                <page string="History">
+
+                                </page>
+                            </notebook>
+                        </group>
+
+                        <group>
+                            <field name="comment_ids" nolabel="1">
+                                <tree string="Comments">
+                                    <field name="work_id"/>
+                                    <field name="employee_id"/>
+                                    <field name="date_comment"/>
+                                    <field name="text"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
 
         <!-- Actions -->
         <record model="ir.actions.act_window" id="projects_action_window">
@@ -130,6 +178,12 @@
         <record model="ir.actions.act_window" id="tasks_action_window">
             <field name="name">tasks</field>
             <field name="res_model">projects.tasks</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="works_action_window">
+            <field name="name">works</field>
+            <field name="res_model">projects.works</field>
             <field name="view_mode">tree,form</field>
         </record>
 
@@ -153,6 +207,8 @@
         <menuitem name="Проекты" id="projects.projects" parent="projects.root" action="projects_action_window"/>
 
         <menuitem name="Задачи" id="projects.tasks" parent="projects.root" action="tasks_action_window"/>
+
+        <menuitem name="Дела" id="projects.works" parent="projects.root" action="works_action_window"/>
 
         <menuitem name="Типы проектов" id="projects.project_types" parent="projects.root" action="project_types_action_window"/>
 

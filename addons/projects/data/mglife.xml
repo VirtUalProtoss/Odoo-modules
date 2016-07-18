@@ -1,0 +1,48 @@
+<openerp>
+    <data>
+        <record id="employee_ssa" model="hr.employee">
+            <field name="name">Соболевский Сергей Александрович</field>
+            <field name="department_id" ref="hr.dep_rd"/>
+            <field name="job_id" ref="hr.job_developer"/>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_4')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813700</field>
+            <field name="work_email">pieter@openerp.com</field>
+            <field name="image" type="base64" file="hr/static/img/employee_fp-image.jpg"/>
+        </record>
+
+        <record model="projects.projects" id="project_manager">
+            <field name="name">Проектный менеджер</field>
+            <field name="type_id" ref="project_type_design_software"/>
+            <field name="owner_id" ref="employee_ssa"/>
+        </record>
+
+        <record model="projects.tasks" id="task_project_module">
+            <field name="name">Модуль "Проекты"</field>
+            <field name="project_id" ref="project_manager"/>
+            <field name="owner_id" ref="employee_ssa"/>
+        </record>
+
+        <record model="projects.tasks" id="task_resource_module">
+            <field name="name">Модуль "Ресурсы"</field>
+            <field name="project_id" ref="project_manager"/>
+            <field name="owner_id" ref="employee_ssa"/>
+        </record>
+
+        <record model="projects.works" id="work_dynamic_forms">
+            <field name="name">Динамические формы</field>
+            <field name="description">Сделать нормальные динамически формируемые формы для задач, дел</field>
+            <field name="date_start">2016-07-17</field>
+            <field name="task_id" ref="task_project_module"/>
+            <field name="owner_id" ref="employee_ssa"/>
+            <field name="type_id" ref="work_type_normal"/>
+        </record>
+
+        <record model="projects.work_comments" id="work_dynamic_forms_cmt_1">
+            <field name="text">Формы деревянные, надо что-то делать с этим...</field>
+            <field name="date_comment">2016-07-17 10:03:54 Europe/Moscow</field>
+            <field name="work_id" ref="work_dynamic_forms"/>
+            <field name="employee_id" ref="employee_ssa"/>
+        </record>
+    </data>
+</openerp>
