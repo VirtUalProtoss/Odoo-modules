@@ -47,5 +47,22 @@
         <record id="project_type_research" model="projects.project_types">
             <field name="name">Исследования</field>
         </record>
+
+        <record id="status_new" model="projects.statuses">
+            <field name="name">Новый</field>
+        </record>
+
+        <record id="status_in_work" model="projects.statuses">
+            <field name="name">В работе</field>
+        </record>
+
+        <record id="status_closed" model="projects.statuses">
+            <field name="name">Закрыто</field>
+        </record>
+
+        <record id="status_paused" model="projects.statuses">
+            <field name="name">Приостановлено</field>
+        </record>
+
     </data>
 </openerp>

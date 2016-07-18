@@ -13,26 +13,44 @@
 
         <record model="projects.projects" id="project_manager">
             <field name="name">Проектный менеджер</field>
+            <field name="status_id" ref="status_in_work"/>
             <field name="type_id" ref="project_type_design_software"/>
             <field name="owner_id" ref="employee_ssa"/>
         </record>
 
         <record model="projects.tasks" id="task_project_module">
             <field name="name">Модуль "Проекты"</field>
+            <field name="status_id" ref="status_in_work"/>
             <field name="project_id" ref="project_manager"/>
             <field name="owner_id" ref="employee_ssa"/>
+            <field name="date_start">2016-07-17</field>
         </record>
 
         <record model="projects.tasks" id="task_resource_module">
             <field name="name">Модуль "Ресурсы"</field>
+            <field name="status_id" ref="status_in_work"/>
             <field name="project_id" ref="project_manager"/>
             <field name="owner_id" ref="employee_ssa"/>
+            <field name="date_start">2016-07-17</field>
         </record>
 
         <record model="projects.works" id="work_dynamic_forms">
             <field name="name">Динамические формы</field>
+            <field name="status_id" ref="status_new"/>
             <field name="description">Сделать нормальные динамически формируемые формы для задач, дел</field>
             <field name="date_start">2016-07-17</field>
+            <field name="planned_time">2016-07-27</field>
+            <field name="task_id" ref="task_project_module"/>
+            <field name="owner_id" ref="employee_ssa"/>
+            <field name="type_id" ref="work_type_normal"/>
+        </record>
+
+        <record model="projects.works" id="work_resource_integration">
+            <field name="name">Интеграция с ресурсами</field>
+            <field name="status_id" ref="status_in_work"/>
+            <field name="description">Подсчет ресурсов по делам, задачам, проектам</field>
+            <field name="date_start">2016-07-17</field>
+            <field name="planned_time">2016-08-15</field>
             <field name="task_id" ref="task_project_module"/>
             <field name="owner_id" ref="employee_ssa"/>
             <field name="type_id" ref="work_type_normal"/>

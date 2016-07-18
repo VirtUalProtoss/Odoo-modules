@@ -1,0 +1,45 @@
+<openerp>
+    <data>
+
+        <record id="projects_resources.work_form" model="ir.ui.view">
+            <field name="name">projects_resources.work_form</field>
+            <field name="model">projects.works</field>
+            <field name="inherit_id" ref="projects.work_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="Resources">
+                        <field name="resource_ids" widget="one2many"/>
+
+                        <field name="resource_count"/>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="projects_resources.work_resource_list">
+            <field name="name">work_resource_list</field>
+            <field name="model">projects_resources.works_resources</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="resource_id"/>
+                    <field name="need_count"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="projects_resources.resource_list">
+            <field name="name">work_resource_list</field>
+            <field name="model">resources.resources</field>
+            <field name="priority">0</field>
+            <field name="inherit_id" ref="resources.resources_list"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="template_id"/>
+                </xpath>
+                <!--<field name="name"/>-->
+            </field>
+        </record>
+
+    </data>
+</openerp>
