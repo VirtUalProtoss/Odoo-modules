@@ -12,8 +12,10 @@
     'version': '0.0.1',
     'depends': ['base', 'hr'],
     'application': True,
+    'installable': True,
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],

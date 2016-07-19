@@ -24,8 +24,9 @@ class WorkComments(models.Model):
         self.date_comment = datetime.now()
         # self.text already stored before call function
         resource = self.env['resource.resource'].search([('user_id', '=', rec['uid'])])
-        employee = self.env['hr.employee'].search([('resource_id', '=', resource.ids[0])])
-        if employee.id:
-            self.employee_id = employee.id
+        if len(resource.ids) > 0:
+            employee = self.env['hr.employee'].search([('resource_id', '=', resource.ids[0])])
+            if employee.id:
+                self.employee_id = employee.id
 
         return {'type': 'ir.actions.act_window_close'}

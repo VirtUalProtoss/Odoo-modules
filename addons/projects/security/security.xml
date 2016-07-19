@@ -1,0 +1,46 @@
+<openerp>
+    <data>
+        <record id="projects_user" model="res.groups">
+            <field name="name">Проекты / Пользователь</field>
+        </record>
+        <record id="projects_manager" model="res.groups">
+            <field name="name">Проекты / Менеджер</field>
+        </record>
+        <record id="projects_admin" model="res.groups">
+            <field name="name">Проекты / Администратор</field>
+        </record>
+
+        <record id="projects_delete_new_only" model="ir.rule">
+            <field name="name">Only cancelled leads may be deleted</field>
+            <field name="model_id" ref="model_projects_projects"/>
+            <field name="groups" eval="[(4, ref('projects_manager'))]"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="1" />
+            <field name="domain_force">[('status_id.name','=','Новый')]</field>
+        </record>
+
+        <record id="projects_delete_new_only" model="ir.rule">
+            <field name="name">Only cancelled leads may be deleted</field>
+            <field name="model_id" ref="model_projects_tasks"/>
+            <field name="groups" eval="[(4, ref('projects_manager'))]"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="1" />
+            <field name="domain_force">[('status_id.name','=','Новый')]</field>
+        </record>
+
+        <record id="projects_delete_new_only" model="ir.rule">
+            <field name="name">Only cancelled leads may be deleted</field>
+            <field name="model_id" ref="model_projects_works"/>
+            <field name="groups" eval="[(4, ref('projects_manager'))]"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="1" />
+            <field name="domain_force">[('status_id.name','=','Новый')]</field>
+        </record>
+    </data>
+</openerp>
