@@ -23,6 +23,7 @@
                             <field name="caption"/>
                             <button name="check_connect" type="object" string="Test connection"/>
                             <button name="get_onyma_operators" type="object" string="Get Onyma operators"/>
+                            <button name="get_onyma_payments" type="object" string="Get Onyma payments"/>
                         </group>
                         <group>
                                 <field name="engine"/>
@@ -53,6 +54,18 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="onyma.payments_list">
+            <field name="name">payments_list</field>
+            <field name="model">onyma.payments</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="operid"/>
+                    <field name="cdate"/>
+                    <field name="bcid"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
 
         <!-- Actions -->
         <record model="ir.actions.act_window" id="onyma_servers_action_window">
@@ -67,11 +80,18 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <record model="ir.actions.act_window" id="onyma_payments_action_window">
+            <field name="name">payments</field>
+            <field name="res_model">onyma.payments</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
         <!-- Menus -->
         <menuitem name="Onyma" id="onyma.root"/>
 
         <menuitem name="Сервера" id="onyma.servers" parent="onyma.root" action="onyma_servers_action_window"/>
         <menuitem name="Операторы" id="onyma.operators" parent="onyma.root" action="onyma_operators_action_window"/>
+        <menuitem name="Платежи" id="onyma.payments" parent="onyma.root" action="onyma_payments_action_window"/>
 
     </data>
 </openerp>

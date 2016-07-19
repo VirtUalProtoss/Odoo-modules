@@ -5,14 +5,14 @@ __author__ = 'virtual'
 from .. import Onyma
 from datetime import date
 
-from miscHelper.functions import get_db_data
+from ....models.servers import get_db_data
 
-from schema.onyma.apibills import ApiBills
-from schema.onyma.apidogpayment import ApiDogpayment
-from schema.onyma.apimonthbills import ApiMonthBills
-from schema.onyma.apibilltype import ApiBillType
-from schema.onyma.apioperators import ApiOperators
-from schema.onyma.apitimecredit import ApiTimeCredit
+from ....schema.onyma.apibills import ApiBills
+from ....schema.onyma.apidogpayment import ApiDogpayment
+from ....schema.onyma.apimonthbills import ApiMonthBills
+from ....schema.onyma.apibilltype import ApiBillType
+from ....schema.onyma.apioperators import ApiOperators
+from ....schema.onyma.apitimecredit import ApiTimeCredit
 
 from sqlalchemy.sql import func
 from datetime import datetime

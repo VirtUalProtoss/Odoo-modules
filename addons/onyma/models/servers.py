@@ -3,6 +3,8 @@
 from openerp import models, fields, api
 from ..connection import *
 from ..billing.onyma import Onyma
+from ..billing.onyma.bills import Bills
+from datetime import datetime, date
 
 
 class OnymaServers(models.Model):
@@ -43,8 +45,6 @@ class OnymaServers(models.Model):
 
     @api.one
     def get_onyma_operators(self):
-        #rec = self.env['onyma.servers'].search([('name', '=', 'ЦБ ТТК')])[1]
-        #print rec
         auth_params = self.get_auth_params()[0]
         conn = connection(self, auth_params)
 
@@ -60,3 +60,18 @@ class OnymaServers(models.Model):
                     'gid': oper.gid,
                     'email': oper.email
                 })
+
+    @api.one
+    def get_onyma_payments(self):
+        auth_params = self.get_auth_params()[0]
+        conn = connection(self, auth_params, echo=True)
+
+        obj = Bills(conn.get_session())
+        print 'Getting payments'
+        recs = obj.get_bills({'gid': 24193, 'mdate': {'check_type': '>=', 'value': date.today()}, })
+        print 'Process payments'
+        for rec in recs:
+            odoo_rec = self.env['onyma.payments'].search([('rowid', '=', rec.ROWID)])
+            if not odoo_rec.id:
+                print 'Write new payments'
+                self.env['onyma.payments'].create(get_db_data_row(rec))

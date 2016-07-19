@@ -33,6 +33,7 @@ class ApiDogpayment(Base):
     mamount = Column(Float)
     mcurrency = Column(Integer, ForeignKey("api_currency_list.currencyid"))
     load_id = Column(Integer)
+    ROWID = Column(String)
 
     operator = relation(ApiOperators, primaryjoin=(operid == ApiOperators.operid))
     ntype_obj = relation(ApiBillType, primaryjoin=(ntype == ApiBillType.ntype))
