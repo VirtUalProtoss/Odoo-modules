@@ -163,8 +163,12 @@
                             </notebook>
                         </group>
                         <group>
+                            <group>
                             <field name="comment_ids" nolabel="1" widget="one2many"/>
+                                </group>
+                            <group><button string="Comment" type="action" name="projects.work_add_comment"/></group>
                         </group>
+
                     </group>
                     <!--</sheet>-->
                 </form>
@@ -180,6 +184,7 @@
                     <field name="employee_id"/>
                     <field name="date_comment"/>
                     <field name="text"/>
+
                 </tree>
             </field>
         </record>
@@ -194,6 +199,22 @@
                         <field name="employee_id"/>
                         <field name="date_comment"/>
                         <field name="text"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="work_add_comment_form">
+            <field name="name">work_add_comment_form</field>
+            <field name="model">projects.work_comments</field>
+            <field name="arch" type="xml">
+                <form string="Comments">
+                    <sheet>
+                        <field name="work_id" invisible="1"/>
+                        <field name="employee_id" invisible="1"/>
+                        <field name="date_comment" invisible="1"/>
+                        <field name="text"/>
+                        <button name="add_comment" type="object" string="Add"/>
                     </sheet>
                 </form>
             </field>
@@ -229,6 +250,15 @@
             <field name="name">work_types_action_window</field>
             <field name="res_model">projects.work_types</field>
             <field name="view_mode">tree,form</field>
+            <!--<field name="image" widget='image' class="oe_avatar" options='{"preview_image": "image_medium"}'/>-->
+        </record>
+
+        <record model="ir.actions.act_window" id="projects.work_add_comment">
+            <field name="name">work_add_comment</field>
+            <field name="res_model">projects.work_comments</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="work_add_comment_form"/>
+            <field name="target">new</field>
             <!--<field name="image" widget='image' class="oe_avatar" options='{"preview_image": "image_medium"}'/>-->
         </record>
 

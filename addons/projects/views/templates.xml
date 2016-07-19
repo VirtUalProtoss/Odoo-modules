@@ -48,6 +48,18 @@
             <field name="name">Исследования</field>
         </record>
 
+        <record id="project_type_repair" model="projects.project_types">
+            <field name="name">Ремонт</field>
+        </record>
+
+        <record id="project_type_upgrade" model="projects.project_types">
+            <field name="name">Модернизация</field>
+        </record>
+
+        <record id="project_type_update" model="projects.project_types">
+            <field name="name">Обновление</field>
+        </record>
+
         <record id="status_new" model="projects.statuses">
             <field name="name">Новый</field>
         </record>
