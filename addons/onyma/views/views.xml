@@ -1,0 +1,57 @@
+<openerp>
+    <data>
+        <!-- Forms -->
+        <record model="ir.ui.view" id="onyma.servers_list">
+            <field name="name">servers_list</field>
+            <field name="model">onyma.servers</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="caption"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="onyma.servers_form">
+            <field name="name">servers_form</field>
+            <field name="model">onyma.servers</field>
+            <field name="arch" type="xml">
+                <form string="Server">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="caption"/>
+                            <button name="check_connect" type="object" string="Test connection"/>
+                        </group>
+                        <group>
+                                <field name="engine"/>
+                                <field name="host"/>
+                                <field name="port"/>
+                                <field name="username"/>
+                                <field name="password"/>
+                                <field name="encoding"/>
+                                <field name="auth_sql"/>
+                                <field name="oper_name"/>
+                                <field name="oper_pass"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Actions -->
+        <record model="ir.actions.act_window" id="onyma_servers_action_window">
+            <field name="name">servers</field>
+            <field name="res_model">onyma.servers</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Menus -->
+        <menuitem name="Onyma" id="onyma.root"/>
+
+        <menuitem name="Сервера" id="onyma.servers" parent="onyma.root" action="onyma_servers_action_window"/>
+
+    </data>
+</openerp>

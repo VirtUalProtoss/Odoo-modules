@@ -2,9 +2,14 @@
     <data>
         <record id="api_ttk" model="onyma.servers">
             <field name="name">ЦБ ТТК</field>
-            <field name="address">10.110.32.148</field>
+            <field name="engine">oracle+cx_oracle</field>
+            <field name="host">10.110.32.148</field>
+            <field name="port">1521</field>
+            <field name="database">onyma</field>
+            <field name="encoding">utf-8</field>
             <field name="username">onyma_api</field>
             <field name="password">onyma_api</field>
+            <field name="auth_sql">begin api_dog.auth('%s','%s'); commit; end;</field>
         </record>
     </data>
 </openerp>

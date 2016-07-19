@@ -13,8 +13,8 @@
     'depends': ['base'],
     'application': True,
     'data': [
-        # 'security/ir.model.access.csv',
-        #'views/views.xml',
+        'ir.model.access.csv',
+        'views/views.xml',
         'data.xml',
     ],
 }
