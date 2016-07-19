@@ -10,6 +10,8 @@
             <field name="username">onyma_api</field>
             <field name="password">onyma_api</field>
             <field name="auth_sql">begin api_dog.auth('%s','%s'); commit; end;</field>
+            <field name="oper_name">s.sobolevskiy</field>
+            <field name="oper_pass">NjgZYX3J</field>
         </record>
     </data>
 </openerp>

@@ -22,6 +22,7 @@
                             <field name="name"/>
                             <field name="caption"/>
                             <button name="check_connect" type="object" string="Test connection"/>
+                            <button name="get_onyma_operators" type="object" string="Get Onyma operators"/>
                         </group>
                         <group>
                                 <field name="engine"/>
@@ -39,6 +40,19 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="onyma.operators_list">
+            <field name="name">operators_list</field>
+            <field name="model">onyma.operators</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="operid"/>
+                    <field name="name"/>
+                    <field name="login"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
 
         <!-- Actions -->
         <record model="ir.actions.act_window" id="onyma_servers_action_window">
@@ -47,11 +61,17 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <record model="ir.actions.act_window" id="onyma_operators_action_window">
+            <field name="name">operators</field>
+            <field name="res_model">onyma.operators</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
         <!-- Menus -->
         <menuitem name="Onyma" id="onyma.root"/>
 
         <menuitem name="Сервера" id="onyma.servers" parent="onyma.root" action="onyma_servers_action_window"/>
+        <menuitem name="Операторы" id="onyma.operators" parent="onyma.root" action="onyma_operators_action_window"/>
 
     </data>
 </openerp>

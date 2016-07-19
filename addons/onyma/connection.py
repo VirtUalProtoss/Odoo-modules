@@ -1,4 +1,5 @@
-0
+# -*- coding: utf-8 -*-
+
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -45,6 +46,7 @@ class connection():
             'password': rec.password.encode('utf-8'),
         })
         self.create_engine(conn_str, rec.engine.encode('utf-8'), rec.encoding.encode('utf-8'))
+        self.create_session()
         auth_sql = rec.auth_sql.encode('utf-8') % (auth_params['login'], auth_params['password'],)
         self.auth(auth_sql)
 
