@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_onyma_servers_all,onyma_servers_all,model_onyma_servers,,True,True,True,True
+access_onyma_operators_all,onyma_operators_all,model_onyma_operators,,True,True,True,True
+access_onyma_payments_all,onyma_payments_all,model_onyma_payments,,True,False,True,False
+access_onyma_api_dog_list_all,onyma_api_dog_list_all,model_onyma_api_dog_list,,True,True,True,True
 
