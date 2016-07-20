@@ -1,24 +1,12 @@
 <openerp>
     <data>
         <!-- Forms -->
-        <record model="ir.ui.view" id="kashier_payments_list">
-            <field name="name">payments_list</field>
-            <field name="model">onyma.payments</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="operid"/>
-                    <field name="cdate"/>
-                    <field name="bcid"/>
-                    <field name="amount"/>
-                </tree>
-            </field>
-        </record>
 
 
         <!-- Actions -->
         <record model="ir.actions.act_window" id="kashier_payments_action_window">
             <field name="name">kashier_payments</field>
-            <field name="res_model">kashier.payments</field>
+            <field name="res_model">onyma.payments</field>
             <field name="view_mode">tree,form</field>
         </record>
 

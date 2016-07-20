@@ -63,7 +63,9 @@
                     <field name="operid"/>
                     <field name="cdate"/>
                     <field name="bcid"/>
+                    <field name="client_id"/>
                     <field name="amount"/>
+                    <!--<field name="rmrk"/>-->
                 </tree>
             </field>
         </record>
@@ -75,11 +77,38 @@
                 <tree>
                     <field name="dog_type"/>
                     <field name="dogcode"/>
-                    <!--<field name="client_name"/>-->
+                    <field name="name"/>
                     <field name="startdate"/>
                     <field name="enddate"/>
                     <field name="status"/>
                 </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="onyma.dogs_form">
+            <field name="name">dogs_form</field>
+            <field name="model">onyma.api_dog_list</field>
+            <field name="arch" type="xml">
+                <form string="Dogovor">
+                    <sheet>
+                        <group>
+                            <field name="dog_type"/>
+                            <field name="dogcode"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Payments">
+                                    <group>
+                                        <field name="payment_ids">
+
+                                        </field>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
             </field>
         </record>
 

@@ -27,8 +27,10 @@ class ApiDogList(models.Model):
     csid = fields.Integer()
     utid = fields.Integer()
 
-    #client_name = fields.Char(compute='get_client_name', client='Клиент', store=True)
+    name = fields.Char(compute='get_client_name', client='Клиент', store=True)
     dog_type = fields.Char(compute='get_dogtype', string='Тип договора')
+    payment_ids = fields.One2many('onyma.payments', 'client_id')
+
 
     @api.one
     def get_dogtype(self):
@@ -51,7 +53,9 @@ class ApiDogList(models.Model):
             attrid = 12
         else:
             attrid = 12
-        self.get_add_dog_attrib(attrid)
+        name = self.get_add_dog_attrib(attrid)
+        self.name = name
+        return name
 
     @api.one
     def get_add_dog_attrib(self, attrid, pdate=date.today(), format=('%Y-%m-%d', 'yyyy-mm-dd')):
@@ -75,6 +79,9 @@ class ApiDogList(models.Model):
         }))
         recs = get_db_data(result)
         print 'Process client name'
+        client_name = None
         for rec in recs:
             print 'attr', attrid, 'is', rec['value']
-            self.client_name = rec['value']
+            client_name = rec['value']
+
+        return client_name

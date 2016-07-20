@@ -62,6 +62,29 @@ class OnymaServers(models.Model):
                 })
 
     @api.one
+    def get_operator(self, operid):
+        auth_params = self.get_auth_params()[0]
+        conn = connection(self, auth_params)
+
+        sql = '''
+                select
+                    *
+                from api_operators
+                where operid = %d
+            ''' % (operid,)
+
+        result = conn.exec_sql(sql)
+        recs = get_db_data(result)
+        nrec = None
+        for rec in recs:
+            odoo_rec = self.env['onyma.operators'].search([('operid', '=', rec['operid'])])
+            if not odoo_rec.id:
+                print 'Creating operator:', rec['operid']
+                nrec = self.env['onyma.operators'].create(rec)
+
+        return nrec
+
+    @api.one
     def get_onyma_payments(self, pdate=date.today()):
         auth_params = self.get_auth_params()[0]
         conn = connection(self, auth_params)
@@ -95,20 +118,23 @@ class OnymaServers(models.Model):
         result = conn.exec_sql(sql)
         recs = get_db_data(result)
 
-        #recs = obj.get_bills({'gid': 24193, 'mdate': {'check_type': '>=', 'value': date.today()}, })
         print 'Process payments'
+        row_ids = []
+        dog_ids = []
+        oper_ids = []
         for rec in recs:
-            client = self.env['onyma.api_dog_list'].search([('dogid', '=', rec['dogid'])])
+            if rec['row_id'] not in row_ids:
+                row_ids.append(rec['row_id'])
+            if rec['operid'] not in oper_ids:
+                oper_ids.append(rec['operid'])
+            if rec['dogid'] not in dog_ids:
+                dog_ids.append(rec['dogid'])
 
-            if not client.id:
-                print 'dogcode', rec['dogcode'], 'out of api_dog_list'
-                continue
+        self.get_onyma_data_by_payments('onyma.api_dog_list', 'dogid', dog_ids)
+        self.get_onyma_data_by_payments('onyma.operators', 'operid', oper_ids)
 
-            operator = self.env['onyma.operators'].search([('operid', '=', rec['operid'])])
-            if not operator.id:
-                print 'operator', rec['operid'], 'out of operators'
-                continue
 
+        for rec in recs:
             odoo_rec = self.env['onyma.payments'].search([('row_id', '=', rec['row_id'])])
 
             if not odoo_rec.id:
@@ -121,9 +147,9 @@ class OnymaServers(models.Model):
                         'dogid': rec['dogid'],
                         'bcid': rec['bcid'],
                         'ppdate': rec['ppdate'].strftime('%Y-%m-%d'),
-                        'operid': operator.id,
+                        'operid': self.env['onyma.operators'].search([('operid', '=', rec['operid'])])[0].id,
                         'amount': rec['amount'],
-                        'client_id': client.id,
+                        'client_id': self.env['onyma.api_dog_list'].search([('dogid', '=', rec['dogid'])])[0].id,
                         'billid': rec['billid'],
                         'rmrk': rec['rmrk'],
                         'ntype': rec['ntype'],
@@ -135,6 +161,28 @@ class OnymaServers(models.Model):
 
     def user_auth(self):
         pass
+
+    @api.one
+    def get_dog(self, dogid):
+        auth_params = self.get_auth_params()[0]
+        conn = connection(self, auth_params)
+
+        sql = '''
+                select
+                    dogid, bill, gid, dogcode, status, startdate, enddate, status_date, tsid, csid, utid
+                from api_dog_list
+                where dogid = %d
+            ''' % (dogid, )
+        result = conn.exec_sql(sql)
+        recs = get_db_data(result)
+        nrec = None
+        for rec in recs:
+            odoo_rec = self.env['onyma.api_dog_list'].search([('dogid', '=', rec['dogid'])])
+            if not odoo_rec.id:
+                print 'Creating dog:', rec['dogid']
+                nrec = self.env['onyma.api_dog_list'].create(rec)
+
+        return nrec
 
     @api.one
     def get_onyma_dogs(self):
@@ -205,3 +253,21 @@ class OnymaServers(models.Model):
             if not odoo_rec.id:
                 self.env['onyma.api_dog_list'].create(rec)
         print 'End process clients'
+
+    @api.one
+    def get_onyma_data_by_payments(self, model, field, onyma_ids):
+        odoo_ids = self.env[model].search([(field, 'in', onyma_ids)])
+        odoo_cids = []
+        for rec in odoo_ids:
+            if rec.__dict__[field] not in odoo_cids:
+                odoo_cids.append(rec.__dict__[field])
+
+        for rec in onyma_ids:
+            if rec not in odoo_cids:
+                if model == 'onyma.operators':
+                    nrec = self.get_operator(rec)
+                elif model == 'onyma.api_dog_list':
+                    nrec = self.get_dog(rec)
+                else:
+                    pass
+                #self.env[model].write(nrec)
