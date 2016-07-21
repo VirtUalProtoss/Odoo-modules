@@ -1,0 +1,2140 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class=" is-copy-enabled is-u2f-enabled">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+    <meta charset='utf-8'>
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-e53fc1ddbde2a9e5645df620f65c80ef723c741b33293b6f22a2b7f2c8145fcf.css" integrity="sha256-5T/B3b3iqeVkXfYg9lyA73I8dBszKTtvIqK38sgUX88=" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-4664ce357daee067bd8ee8e99e0833d04b115022dbf4ca637241c0f7d1f832b7.css" integrity="sha256-RmTONX2u4Ge9jujpnggz0EsRUCLb9MpjckHA99H4Mrc=" media="all" rel="stylesheet" />
+    
+    
+    
+    
+
+    <link as="script" href="https://assets-cdn.github.com/assets/frameworks-404cdd1add1f710db016a02e5e31fff8a9089d14ff0c227df862b780886db7d5.js" rel="preload" />
+    
+    <link as="script" href="https://assets-cdn.github.com/assets/github-bda6c8f3d777243f9192f7725d680673aa13394eaeee5081e53f00e42e950028.js" rel="preload" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width">
+    
+    
+    <title>laurenz/oracle_fdw: PostgreSQL extension that provides a Foreign Data Wrapper for easy and efficient access to Oracle databases</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="https://avatars3.githubusercontent.com/u/220612?v=3&amp;s=400" name="twitter:image:src" /><meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="laurenz/oracle_fdw" name="twitter:title" /><meta content="oracle_fdw - PostgreSQL extension that provides a Foreign Data Wrapper for easy and efficient access to Oracle databases" name="twitter:description" />
+      <meta content="https://avatars3.githubusercontent.com/u/220612?v=3&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="laurenz/oracle_fdw" property="og:title" /><meta content="https://github.com/laurenz/oracle_fdw" property="og:url" /><meta content="oracle_fdw - PostgreSQL extension that provides a Foreign Data Wrapper for easy and efficient access to Oracle databases" property="og:description" />
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="web-socket" href="wss://live.github.com/_sockets/MzMzOTYxNjo1N2RlZTA5YTg1ZjU3Yzg5MWYxNGI5MzNiMTc0MDY1MToyODA1ZDM5NDY4OTgxOTRkNzlmMjQzZmQwOTVlNWI3YzdlNWNhYjYwOTE0MDZkN2M2NGVhM2UxYjUwNGFkNDA3--fd0ca2dd971fbd0cb839f4e46c7e1cd1f7addb76">
+    <meta name="pjax-timeout" content="1000">
+    <link rel="sudo-modal" href="/sessions/sudo_modal">
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient>
+
+    <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+<meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-analytics" content="UA-3769691-2">
+
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="5BD394B2:22A8:5F109C8:5790802E" name="octolytics-dimension-request_id" /><meta content="3339616" name="octolytics-actor-id" /><meta content="VirtUalProtoss" name="octolytics-actor-login" /><meta content="bfc984fd5c80af9f110026e511c50391997f9b4c0fcc22b0a07f3969581932e1" name="octolytics-actor-hash" />
+<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;" data-pjax-transient="true" name="analytics-location" />
+
+
+
+  <meta class="js-ga-set" name="dimension1" content="Logged In">
+
+
+
+        <meta name="hostname" content="github.com">
+    <meta name="user-login" content="VirtUalProtoss">
+
+        <meta name="expected-hostname" content="github.com">
+      <meta name="js-proxy-site-detection-payload" content="YjQ5NGQzZTQ0OTI3MDVmZGFkNDJmZTZjYzM4Y2Y0MDYzZWEzM2RjMzZmY2UxZDNmNGJkNzg2ZWE2ZmMzNTZmZnx7InJlbW90ZV9hZGRyZXNzIjoiOTEuMjExLjE0OC4xNzgiLCJyZXF1ZXN0X2lkIjoiNUJEMzk0QjI6MjJBODo1RjEwOUM4OjU3OTA4MDJFIiwidGltZXN0YW1wIjoxNDY5MDg3NzkwfQ==">
+
+
+      <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#4078c0">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <meta name="html-safe-nonce" content="5d27d2cc119479b654d884acf1e5692d4702fa82">
+    <meta content="8000435c1020ff35f28e8b060754dfe597c64932" name="form-nonce" />
+
+    <meta http-equiv="x-pjax-version" content="c85c9b6f8432cc7b07e5ce5161e4d4fc">
+    
+
+      
+  <meta name="description" content="oracle_fdw - PostgreSQL extension that provides a Foreign Data Wrapper for easy and efficient access to Oracle databases">
+  <meta name="go-import" content="github.com/laurenz/oracle_fdw git https://github.com/laurenz/oracle_fdw.git">
+
+  <meta content="220612" name="octolytics-dimension-user_id" /><meta content="laurenz" name="octolytics-dimension-user_login" /><meta content="14332609" name="octolytics-dimension-repository_id" /><meta content="laurenz/oracle_fdw" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="14332609" name="octolytics-dimension-repository_network_root_id" /><meta content="laurenz/oracle_fdw" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/laurenz/oracle_fdw/commits/master.atom" rel="alternate" title="Recent Commits to oracle_fdw:master" type="application/atom+xml">
+
+
+      <link rel="canonical" href="https://github.com/laurenz/oracle_fdw" data-pjax-transient>
+  </head>
+
+
+  <body class="logged-in   env-production linux vis-public">
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"></div>
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+
+    
+    
+    
+
+
+
+        <div class="header header-logged-in true" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
+  <svg aria-hidden="true" class="octicon octicon-mark-github" height="28" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+</a>
+
+
+        <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
+  <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/laurenz/oracle_fdw/search" class="js-site-search-form" data-scoped-search-url="/laurenz/oracle_fdw/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <label class="form-control header-search-wrapper js-chromeless-input-container">
+      <div class="header-search-scope">This repository</div>
+      <input type="text"
+        class="form-control header-search-input js-site-search-focus js-site-search-field is-clearable"
+        data-hotkey="s"
+        name="q"
+        placeholder="Search"
+        aria-label="Search this repository"
+        data-unscoped-placeholder="Search GitHub"
+        data-scoped-placeholder="Search"
+        tabindex="1"
+        autocapitalize="off">
+    </label>
+</form></div>
+
+
+      <ul class="header-nav left" role="navigation">
+        <li class="header-nav-item">
+          <a href="/pulls" class="js-selected-navigation-item header-nav-link" data-ga-click="Header, click, Nav menu - item:pulls context:user" data-hotkey="g p" data-selected-links="/pulls /pulls/assigned /pulls/mentioned /pulls">
+            Pull requests
+</a>        </li>
+        <li class="header-nav-item">
+          <a href="/issues" class="js-selected-navigation-item header-nav-link" data-ga-click="Header, click, Nav menu - item:issues context:user" data-hotkey="g i" data-selected-links="/issues /issues/assigned /issues/mentioned /issues">
+            Issues
+</a>        </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://gist.github.com/" data-ga-click="Header, go to gist, text:gist">Gist</a>
+          </li>
+      </ul>
+
+    
+<ul class="header-nav user-nav right" id="user-links">
+  <li class="header-nav-item">
+    
+    <a href="/notifications" aria-label="You have no unread notifications" class="header-nav-link notification-indicator tooltipped tooltipped-s js-socket-channel js-notification-indicator" data-channel="tenant:1:notification-changed:3339616" data-ga-click="Header, go to notifications, icon:read" data-hotkey="g n">
+        <span class="mail-status "></span>
+        <svg aria-hidden="true" class="octicon octicon-bell" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"></path></svg>
+</a>
+  </li>
+
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link tooltipped tooltipped-s js-menu-target" href="/new"
+       aria-label="Create new…"
+       data-ga-click="Header, create new, icon:add">
+      <svg aria-hidden="true" class="octicon octicon-plus left" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"></path></svg>
+      <span class="dropdown-caret"></span>
+    </a>
+
+    <div class="dropdown-menu-content js-menu-content">
+      <ul class="dropdown-menu dropdown-menu-sw">
+        
+<a class="dropdown-item" href="/new" data-ga-click="Header, create new repository">
+  New repository
+</a>
+
+  <a class="dropdown-item" href="/new/import" data-ga-click="Header, import a repository">
+    Import repository
+  </a>
+
+
+  <a class="dropdown-item" href="/organizations/new" data-ga-click="Header, create new organization">
+    New organization
+  </a>
+
+
+
+  <div class="dropdown-divider"></div>
+  <div class="dropdown-header">
+    <span title="laurenz/oracle_fdw">This repository</span>
+  </div>
+    <a class="dropdown-item" href="/laurenz/oracle_fdw/issues/new" data-ga-click="Header, create new issue">
+      New issue
+    </a>
+
+      </ul>
+    </div>
+  </li>
+
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link name tooltipped tooltipped-sw js-menu-target" href="/VirtUalProtoss"
+       aria-label="View profile and more"
+       data-ga-click="Header, show menu, icon:avatar">
+      <img alt="@VirtUalProtoss" class="avatar" height="20" src="https://avatars0.githubusercontent.com/u/3339616?v=3&amp;s=40" width="20" />
+      <span class="dropdown-caret"></span>
+    </a>
+
+    <div class="dropdown-menu-content js-menu-content">
+      <div class="dropdown-menu dropdown-menu-sw">
+        <div class="dropdown-header header-nav-current-user css-truncate">
+          Signed in as <strong class="css-truncate-target">VirtUalProtoss</strong>
+        </div>
+
+        <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item" href="/VirtUalProtoss" data-ga-click="Header, go to profile, text:your profile">
+          Your profile
+        </a>
+        <a class="dropdown-item" href="/stars" data-ga-click="Header, go to starred repos, text:your stars">
+          Your stars
+        </a>
+        <a class="dropdown-item" href="/explore" data-ga-click="Header, go to explore, text:explore">
+          Explore
+        </a>
+          <a class="dropdown-item" href="/integrations" data-ga-click="Header, go to integrations, text:integrations">
+            Integrations
+          </a>
+        <a class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">
+          Help
+        </a>
+
+
+        <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">
+          Settings
+        </a>
+
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="8000435c1020ff35f28e8b060754dfe597c64932" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="qYVCk6ygHBmsu157GFkYr49kQl2ZJv52ahzJLyl1ziJEqqzj48BRME+udb1jN6/mJ0nqSjpmHSyS5NRphl/q5g==" /></div>
+          <button class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
+            Sign out
+          </button>
+</form>      </div>
+    </div>
+  </li>
+</ul>
+
+
+    
+  </div>
+</div>
+
+
+      
+
+
+    <div id="start-of-content" class="accessibility-aid"></div>
+
+      <div id="js-flash-container">
+</div>
+
+
+    <div role="main">
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode">
+    <div id="js-repo-pjax-container" data-pjax-container>
+      
+<div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
+  <div class="container repohead-details-container">
+
+    
+
+<ul class="pagehead-actions">
+
+  <li>
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="8000435c1020ff35f28e8b060754dfe597c64932" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ciudbQqfaJdFF98xr7xQVJFFXICg6phK9PGaB3M2/ka+k2JfSPfaxLwaLUauZI1XKSJktNqPFid2bEuO+CrBZg==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="14332609" />
+
+        <div class="select-menu js-menu-container js-select-menu">
+          <a href="/laurenz/oracle_fdw/subscription"
+            class="btn btn-sm btn-with-count select-menu-button js-menu-target" role="button" tabindex="0" aria-haspopup="true"
+            data-ga-click="Repository, click Watch settings, action:files#disambiguate">
+            <span class="js-select-button">
+              <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+              Watch
+            </span>
+          </a>
+          <a class="social-count js-social-count" href="/laurenz/oracle_fdw/watchers">
+            19
+          </a>
+
+        <div class="select-menu-modal-holder">
+          <div class="select-menu-modal subscription-menu-modal js-menu-content" aria-hidden="true">
+            <div class="select-menu-header js-navigation-enable" tabindex="-1">
+              <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
+              <span class="select-menu-title">Notifications</span>
+            </div>
+
+              <div class="select-menu-list js-navigation-container" role="menu">
+
+                <div class="select-menu-item js-navigation-item selected" role="menuitem" tabindex="0">
+                  <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+                  <div class="select-menu-item-text">
+                    <input checked="checked" id="do_included" name="do" type="radio" value="included" />
+                    <span class="select-menu-item-heading">Not watching</span>
+                    <span class="description">Be notified when participating or @mentioned.</span>
+                    <span class="js-select-button-text hidden-select-button-text">
+                      <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+                      Watch
+                    </span>
+                  </div>
+                </div>
+
+                <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+                  <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+                  <div class="select-menu-item-text">
+                    <input id="do_subscribed" name="do" type="radio" value="subscribed" />
+                    <span class="select-menu-item-heading">Watching</span>
+                    <span class="description">Be notified of all conversations.</span>
+                    <span class="js-select-button-text hidden-select-button-text">
+                      <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+                      Unwatch
+                    </span>
+                  </div>
+                </div>
+
+                <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+                  <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+                  <div class="select-menu-item-text">
+                    <input id="do_ignore" name="do" type="radio" value="ignore" />
+                    <span class="select-menu-item-heading">Ignoring</span>
+                    <span class="description">Never be notified.</span>
+                    <span class="js-select-button-text hidden-select-button-text">
+                      <svg aria-hidden="true" class="octicon octicon-mute" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8 2.81v10.38c0 .67-.81 1-1.28.53L3 10H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h2l3.72-3.72C7.19 1.81 8 2.14 8 2.81zm7.53 3.22l-1.06-1.06-1.97 1.97-1.97-1.97-1.06 1.06L11.44 8 9.47 9.97l1.06 1.06 1.97-1.97 1.97 1.97 1.06-1.06L13.56 8l1.97-1.97z"></path></svg>
+                      Stop ignoring
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+</form>
+  </li>
+
+  <li>
+    
+  <div class="js-toggler-container js-social-container starring-container ">
+
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/laurenz/oracle_fdw/unstar" class="starred" data-form-nonce="8000435c1020ff35f28e8b060754dfe597c64932" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="voneEV0VZ4fGaJ0esw89o9Hbq/imSL2VZZ7dNv8FoQ+cXPBS5yTpgoLnXDdFL/KwbnbCNAeziIN0RzH5kPb9GQ==" /></div>
+      <button
+        class="btn btn-sm btn-with-count js-toggler-target"
+        aria-label="Unstar this repository" title="Unstar laurenz/oracle_fdw"
+        data-ga-click="Repository, click unstar button, action:files#disambiguate; text:Unstar">
+        <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>
+        Unstar
+      </button>
+        <a class="social-count js-social-count" href="/laurenz/oracle_fdw/stargazers">
+          68
+        </a>
+</form>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/laurenz/oracle_fdw/star" class="unstarred" data-form-nonce="8000435c1020ff35f28e8b060754dfe597c64932" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="M9rqD3XJkXQWsZAAzpwypj7K4gkxzpkCTG9vbjd+T8Nvzz1IXoJW0qgDvaIheFYH/M4YwOEpEyqLEZh5XIhLXg==" /></div>
+      <button
+        class="btn btn-sm btn-with-count js-toggler-target"
+        aria-label="Star this repository" title="Star laurenz/oracle_fdw"
+        data-ga-click="Repository, click star button, action:files#disambiguate; text:Star">
+        <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>
+        Star
+      </button>
+        <a class="social-count js-social-count" href="/laurenz/oracle_fdw/stargazers">
+          68
+        </a>
+</form>  </div>
+
+  </li>
+
+  <li>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/laurenz/oracle_fdw/fork" class="btn-with-count" data-form-nonce="8000435c1020ff35f28e8b060754dfe597c64932" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="juYo9cF4A0Zts/wfuprv81B+kDopKqRl+xMLKfrCbHBNHJZaXCg56rzVa7wTyU9kBc4kZUHh/TECY5DWejG7lw==" /></div>
+            <button
+                type="submit"
+                class="btn btn-sm btn-with-count"
+                data-ga-click="Repository, show fork modal, action:files#disambiguate; text:Fork"
+                title="Fork your own copy of laurenz/oracle_fdw to your account"
+                aria-label="Fork your own copy of laurenz/oracle_fdw to your account">
+              <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+              Fork
+            </button>
+</form>
+    <a href="/laurenz/oracle_fdw/network" class="social-count">
+      37
+    </a>
+  </li>
+</ul>
+
+    <h1 class="public ">
+  <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+  <span class="author" itemprop="author"><a href="/laurenz" class="url fn" rel="author">laurenz</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a href="/laurenz/oracle_fdw" data-pjax="#js-repo-pjax-container">oracle_fdw</a></strong>
+
+</h1>
+
+  </div>
+  <div class="container">
+    
+<nav class="reponav js-repo-nav js-sidenav-container-pjax"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/laurenz/oracle_fdw" aria-selected="true" class="js-selected-navigation-item selected reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /laurenz/oracle_fdw" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"></path></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a href="/laurenz/oracle_fdw/issues" class="js-selected-navigation-item reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /laurenz/oracle_fdw/issues" itemprop="url">
+        <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
+        <span itemprop="name">Issues</span>
+        <span class="counter">4</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/laurenz/oracle_fdw/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /laurenz/oracle_fdw/pulls" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="counter">1</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+    <a href="/laurenz/oracle_fdw/wiki" class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /laurenz/oracle_fdw/wiki">
+      <svg aria-hidden="true" class="octicon octicon-book" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"></path></svg>
+      Wiki
+</a>
+
+  <a href="/laurenz/oracle_fdw/pulse" class="js-selected-navigation-item reponav-item" data-selected-links="pulse /laurenz/oracle_fdw/pulse">
+    <svg aria-hidden="true" class="octicon octicon-pulse" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8z"></path></svg>
+    Pulse
+</a>
+  <a href="/laurenz/oracle_fdw/graphs" class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors /laurenz/oracle_fdw/graphs">
+    <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"></path></svg>
+    Graphs
+</a>
+
+</nav>
+
+  </div>
+</div>
+
+<div class="container new-discussion-timeline experiment-repo-nav">
+  <div class="repository-content">
+
+    
+<div class="repository-meta js-details-container">
+  <span class="repository-meta-content">
+        <span itemprop="about"> PostgreSQL extension that provides a Foreign Data Wrapper for easy and efficient access to Oracle databases</span>
+  </span>
+
+</div>
+
+
+<div class="overall-summary overall-summary-bottomless">
+  <div class="stats-switcher-viewport js-stats-switcher-viewport">
+    <div class="stats-switcher-wrapper">
+    <ul class="numbers-summary">
+      <li class="commits">
+        <a data-pjax href="/laurenz/oracle_fdw/commits/master">
+            <svg aria-hidden="true" class="octicon octicon-history" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path></svg>
+            <span class="num text-emphasized">
+              287
+            </span>
+            commits
+        </a>
+      </li>
+      <li>
+        <a data-pjax href="/laurenz/oracle_fdw/branches">
+          <svg aria-hidden="true" class="octicon octicon-git-branch" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+          <span class="num text-emphasized">
+            2
+          </span>
+          branches
+        </a>
+      </li>
+
+      <li>
+        <a data-pjax href="/laurenz/oracle_fdw/releases">
+          <svg aria-hidden="true" class="octicon octicon-tag" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M7.73 1.73C7.26 1.26 6.62 1 5.96 1H3.5C2.13 1 1 2.13 1 3.5v2.47c0 .66.27 1.3.73 1.77l6.06 6.06c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41L7.73 1.73zM2.38 7.09c-.31-.3-.47-.7-.47-1.13V3.5c0-.88.72-1.59 1.59-1.59h2.47c.42 0 .83.16 1.13.47l6.14 6.13-4.73 4.73-6.13-6.15zM3.01 3h2v2H3V3h.01z"></path></svg>
+          <span class="num text-emphasized">
+            16
+          </span>
+          releases
+        </a>
+      </li>
+
+      <li>
+          <a href="/laurenz/oracle_fdw/graphs/contributors">
+  <svg aria-hidden="true" class="octicon octicon-organization" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M16 12.999c0 .439-.45 1-1 1H7.995c-.539 0-.994-.447-.995-.999H1c-.54 0-1-.561-1-1 0-2.634 3-4 3-4s.229-.409 0-1c-.841-.621-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.442.58 2.5 3c.058 2.41-.159 2.379-1 3-.229.59 0 1 0 1s1.549.711 2.42 2.088C9.196 9.369 10 8.999 10 8.999s.229-.409 0-1c-.841-.62-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.437.581 2.495 3c.059 2.41-.158 2.38-1 3-.229.59 0 1 0 1s3.005 1.366 3.005 4"></path></svg>
+    <span class="num text-emphasized">
+      5
+    </span>
+    contributors
+</a>
+
+      </li>
+    </ul>
+
+      <div class="repository-lang-stats">
+        <ol class="repository-lang-stats-numbers">
+          <li>
+              <a href="/laurenz/oracle_fdw/search?l=c"  data-ga-click="Repository, language stats search click, location:repo overview">
+                <span class="color-block language-color" style="background-color:#555555;"></span>
+                <span class="lang">C</span>
+                <span class="percent">97.3%</span>
+              </a>
+          </li>
+          <li>
+              <a href="/laurenz/oracle_fdw/search?l=plpgsql"  data-ga-click="Repository, language stats search click, location:repo overview">
+                <span class="color-block language-color" style="background-color:#ccc;"></span>
+                <span class="lang">PLpgSQL</span>
+                <span class="percent">2.2%</span>
+              </a>
+          </li>
+          <li>
+              <a href="/laurenz/oracle_fdw/search?l=makefile"  data-ga-click="Repository, language stats search click, location:repo overview">
+                <span class="color-block language-color" style="background-color:#427819;"></span>
+                <span class="lang">Makefile</span>
+                <span class="percent">0.5%</span>
+              </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="repository-lang-stats-graph js-toggle-lang-stats" title="Click for language details" data-ga-click="Repository, language bar stats toggle, location:repo overview">
+    <span class="language-color" aria-label="C 97.3%" style="width:97.3%; background-color:#555555;" itemprop="keywords">C</span>
+    <span class="language-color" aria-label="PLpgSQL 2.2%" style="width:2.2%; background-color:#ccc;" itemprop="keywords">PLpgSQL</span>
+    <span class="language-color" aria-label="Makefile 0.5%" style="width:0.5%; background-color:#427819;" itemprop="keywords">Makefile</span>
+  </div>
+
+  <include-fragment src="/laurenz/oracle_fdw/show_partial?partial=tree%2Frecently_touched_branches_list"></include-fragment>
+
+<div class="file-navigation in-mid-page">
+
+    <div class="select-menu get-repo-select-menu js-menu-container right select-menu-modal-right">
+  <button class="btn btn-sm btn-primary select-menu-button js-menu-target"
+    title="Clone or download this repository"
+    type="button" aria-label="Clone or download this repository" tabindex="0" aria-haspopup="true">
+    <span>Clone or download</span>
+  </button>
+
+  <div class="select-menu-modal-holder dropdown-menu-content js-menu-content" aria-hidden="true">
+    <div class="get-repo-modal dropdown-menu dropdown-menu-sw pb-0 js-toggler-container ">
+      <div class="clone-options https-clone-options">
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=clone" data-form-nonce="8000435c1020ff35f28e8b060754dfe597c64932" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="H1a/DsQMqmMAUarjMQyY0PWncbk/nk58lwAjfz34oYFgLyGWuixSip5nt5LZr0qjcleq6jmTLokiwvRdRYLdTg==" /></div><button class="btn-link btn-change-protocol js-toggler-target right" type="submit">Use SSH</button></form>
+
+        <h4 class="mb-1">
+          Clone with HTTPS
+          <a class="muted-link" href="https://help.github.com/articles/which-remote-url-should-i-use" target="_blank">
+            <svg aria-hidden="true" class="octicon octicon-question" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M6 10h2v2H6v-2zm4-3.5C10 8.64 8 9 8 9H6c0-.55.45-1 1-1h.5c.28 0 .5-.22.5-.5v-1c0-.28-.22-.5-.5-.5h-1c-.28 0-.5.22-.5.5V7H4c0-1.5 1.5-3 3-3s3 1 3 2.5zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"></path></svg>
+          </a>
+        </h4>
+        <p class="mb-2 get-repo-decription-text">
+          Use Git or checkout with SVN using the web URL.
+        </p>
+
+        <div class="input-group js-zeroclipboard-container">
+  <input type="text" class="form-control input-monospace input-sm js-zeroclipboard-target js-url-field" value="https://github.com/laurenz/oracle_fdw.git" aria-label="Clone this repository at https://github.com/laurenz/oracle_fdw.git" readonly>
+  <div class="input-group-button">
+    <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><svg aria-hidden="true" class="octicon octicon-clippy" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg></button>
+  </div>
+</div>
+
+      </div>
+
+      <div class="clone-options ssh-clone-options">
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=https&amp;protocol_type=clone" data-form-nonce="8000435c1020ff35f28e8b060754dfe597c64932" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="IDzGJqpMgTj/qllVZ7yggCj2Cb5sAkGFinD+FUodl4WhTcMObbjZ3pHJihKQ2ybOaVWnzXCRUP3J1ptFagwjiQ==" /></div><button class="btn-link btn-change-protocol js-toggler-target right" type="submit">Use HTTPS</button></form>
+
+        <h4 class="mb-1">
+          Clone with SSH
+          <a class="muted-link" href="https://help.github.com/articles/which-remote-url-should-i-use" target="_blank">
+            <svg aria-hidden="true" class="octicon octicon-question" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M6 10h2v2H6v-2zm4-3.5C10 8.64 8 9 8 9H6c0-.55.45-1 1-1h.5c.28 0 .5-.22.5-.5v-1c0-.28-.22-.5-.5-.5h-1c-.28 0-.5.22-.5.5V7H4c0-1.5 1.5-3 3-3s3 1 3 2.5zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"></path></svg>
+          </a>
+        </h4>
+        <p class="mb-2 get-repo-decription-text">
+          Use an SSH key and passphrase from account.
+        </p>
+
+        <div class="input-group js-zeroclipboard-container">
+  <input type="text" class="form-control input-monospace input-sm js-zeroclipboard-target js-url-field" value="git@github.com:laurenz/oracle_fdw.git" aria-label="Clone this repository at git@github.com:laurenz/oracle_fdw.git" readonly>
+  <div class="input-group-button">
+    <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><svg aria-hidden="true" class="octicon octicon-clippy" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg></button>
+  </div>
+</div>
+
+      </div>
+
+      <div class="mt-2">
+        
+<a href="/laurenz/oracle_fdw/archive/master.zip"
+   class="btn btn-outline get-repo-btn
+"
+   rel="nofollow"
+   data-ga-click="Repository, download zip, location:repo overview">
+  Download ZIP
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="btn-group right">
+      
+  <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/laurenz/oracle_fdw/new/master" class="btn-group-form" data-form-nonce="8000435c1020ff35f28e8b060754dfe597c64932" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="U74oBTHzMjdPHf2eD2ANbKLtV4fYH8+J6FslPbPNsfPcaeDTgX8pthUQEXqAox3Ar7Qt3trY4YYNJSaw6rGeFQ==" /></div>
+    <button class="btn btn-sm" type="submit" data-disable-with="Creating file…">
+      Create new file
+    </button>
+</form>
+
+      <a href="/laurenz/oracle_fdw/upload/master" class="btn btn-sm">
+        Upload files
+      </a>
+
+    <a href="/laurenz/oracle_fdw/find/master"
+      class="btn btn-sm empty-icon right"
+      data-pjax
+      data-hotkey="t"
+      data-ga-click="Repository, find file, location:repo overview">
+      Find file
+    </a>
+  </div>
+
+  
+<div class="select-menu branch-select-menu js-menu-container js-select-menu left">
+  <button class="btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
+    title="master"
+    type="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <i>Branch:</i>
+    <span class="js-select-button css-truncate-target">master</span>
+  </button>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
+        <span class="select-menu-title">Switch branches/tags</span>
+      </div>
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/laurenz/oracle_fdw/tree/gh-pages"
+               data-name="gh-pages"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="gh-pages">
+                gh-pages
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open selected"
+               href="/laurenz/oracle_fdw/tree/master"
+               data-name="master"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="master">
+                master
+              </span>
+            </a>
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_1_4_0"
+              data-name="ORACLE_FDW_1_4_0"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_1_4_0">
+                ORACLE_FDW_1_4_0
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_1_3_0"
+              data-name="ORACLE_FDW_1_3_0"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_1_3_0">
+                ORACLE_FDW_1_3_0
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_1_2_0"
+              data-name="ORACLE_FDW_1_2_0"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_1_2_0">
+                ORACLE_FDW_1_2_0
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_1_1_0"
+              data-name="ORACLE_FDW_1_1_0"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_1_1_0">
+                ORACLE_FDW_1_1_0
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_1_0_0"
+              data-name="ORACLE_FDW_1_0_0"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_1_0_0">
+                ORACLE_FDW_1_0_0
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_10"
+              data-name="ORACLE_FDW_0_9_10"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_10">
+                ORACLE_FDW_0_9_10
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_9"
+              data-name="ORACLE_FDW_0_9_9"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_9">
+                ORACLE_FDW_0_9_9
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_8"
+              data-name="ORACLE_FDW_0_9_8"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_8">
+                ORACLE_FDW_0_9_8
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_7"
+              data-name="ORACLE_FDW_0_9_7"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_7">
+                ORACLE_FDW_0_9_7
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_6"
+              data-name="ORACLE_FDW_0_9_6"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_6">
+                ORACLE_FDW_0_9_6
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_5"
+              data-name="ORACLE_FDW_0_9_5"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_5">
+                ORACLE_FDW_0_9_5
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_4"
+              data-name="ORACLE_FDW_0_9_4"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_4">
+                ORACLE_FDW_0_9_4
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_3"
+              data-name="ORACLE_FDW_0_9_3"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_3">
+                ORACLE_FDW_0_9_3
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_2"
+              data-name="ORACLE_FDW_0_9_2"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_2">
+                ORACLE_FDW_0_9_2
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9_1"
+              data-name="ORACLE_FDW_0_9_1"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9_1">
+                ORACLE_FDW_0_9_1
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/laurenz/oracle_fdw/tree/ORACLE_FDW_0_9"
+              data-name="ORACLE_FDW_0_9"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
+              <span class="select-menu-item-text css-truncate-target" title="ORACLE_FDW_0_9">
+                ORACLE_FDW_0_9
+              </span>
+            </a>
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+      <a href="/laurenz/oracle_fdw/pull/new/master" class="btn btn-sm new-pull-request-btn" data-pjax data-ga-click="Repository, new pull request, location:repo overview">
+        New pull request
+      </a>
+
+  <div class="breadcrumb">
+    
+  </div>
+</div>
+
+
+
+
+
+  <div class="commit-tease js-details-container">
+    <span class="right">
+      Latest commit
+      <a class="commit-tease-sha" href="/laurenz/oracle_fdw/commit/71a16afd8d5d054f4876d4fba42becff3c2fbb52" data-pjax>
+        71a16af
+      </a>
+      <span itemprop="dateModified"><relative-time datetime="2016-07-19T14:44:22Z">Jul 19, 2016</relative-time></span>
+    </span>
+
+
+    <span class="commit-author-section">
+      <img alt="@laurenz" class="avatar" height="20" src="https://avatars1.githubusercontent.com/u/220612?v=3&amp;s=40" width="20" />
+      <a href="/laurenz" class="user-mention" rel="author">laurenz</a>
+    </span>
+
+        <a href="/laurenz/oracle_fdw/commit/71a16afd8d5d054f4876d4fba42becff3c2fbb52" class="message" data-pjax="true" title="Push down arbitrary IN and NOT IN expressions
+
+Up to now, only lists with constants were considered.
+
+This closes #110 by Volkmar Bühringer.">Push down arbitrary IN and NOT IN expressions</a>
+          <span class="hidden-text-expander inline">
+            <button type="button" class="ellipsis-expander js-details-target">&hellip;</button>
+          </span>
+    </span>
+
+      <div class="commit-desc"><pre class="text-small">Up to now, only lists with constants were considered.
+
+This closes <a href="https://github.com/laurenz/oracle_fdw/issues/110" class="issue-link js-issue-link" data-url="https://github.com/laurenz/oracle_fdw/issues/110" data-id="165979311" data-error-text="Failed to load issue title" data-permission-text="Issue title is private">#110</a> by Volkmar Bühringer.</pre></div>
+  </div>
+
+
+<div class="file-wrap">
+
+  <a href="/laurenz/oracle_fdw/tree/71a16afd8d5d054f4876d4fba42becff3c2fbb52" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+
+  <table class="files js-navigation-container js-active-navigation-container" data-pjax>
+
+
+    <tbody>
+      <tr class="warning include-fragment-error">
+        <td class="icon"><svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"></path></svg></td>
+        <td class="content" colspan="3">Failed to load latest commit information.</td>
+      </tr>
+
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/tree/master/expected" class="js-navigation-open" id="cd26d9e10ce691cc69aa2b90dcebbdac-5897fb63d24d6d1de76c694b106b329647e14daf" title="expected">expected</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/71a16afd8d5d054f4876d4fba42becff3c2fbb52" class="message" data-pjax="true" title="Push down arbitrary IN and NOT IN expressions
+
+Up to now, only lists with constants were considered.
+
+This closes #110 by Volkmar Bühringer.">Push down arbitrary IN and NOT IN expressions</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-07-19T14:44:22Z">Jul 19, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/tree/master/sql" class="js-navigation-open" id="ac5c74b64b4b8352ef2f181affb5ac2a-f36d45eeb1e106143a3f54a91b6da6ec1f192ab5" title="sql">sql</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/71a16afd8d5d054f4876d4fba42becff3c2fbb52" class="message" data-pjax="true" title="Push down arbitrary IN and NOT IN expressions
+
+Up to now, only lists with constants were considered.
+
+This closes #110 by Volkmar Bühringer.">Push down arbitrary IN and NOT IN expressions</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-07-19T14:44:22Z">Jul 19, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/.gitignore" class="js-navigation-open" id="a084b794bc0759e7a6b77810e01874f2-c42a382683076c9c6238954b4c77f6cbf2c263fb" title=".gitignore">.gitignore</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/d21d5273cab789e00f0873c9e1cc4269b865b11b" class="message" data-pjax="true" title="Add CVS and Subversion directories to .gitignore.">Add CVS and Subversion directories to .gitignore.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2014-12-02T14:49:22Z">Dec 2, 2014</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/CHANGELOG" class="js-navigation-open" id="d3bb3391c79904494c60ee2ac2f33070-c127afa9c276108842df6d315a1c7c3122ba0ead" title="CHANGELOG">CHANGELOG</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/71a16afd8d5d054f4876d4fba42becff3c2fbb52" class="message" data-pjax="true" title="Push down arbitrary IN and NOT IN expressions
+
+Up to now, only lists with constants were considered.
+
+This closes #110 by Volkmar Bühringer.">Push down arbitrary IN and NOT IN expressions</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-07-19T14:44:22Z">Jul 19, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/LICENSE" class="js-navigation-open" id="9879d6db96fd29134fc802214163b95a-4ad6b734683f5fde5f938612868b55ddbef8ebff" itemprop="license" title="LICENSE">LICENSE</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/c99f6930b5d011270358b66e1ae42a42f3e04952" class="message" data-pjax="true" title="Update license to 2016">Update license to 2016</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-04-06T12:49:36Z">Apr 6, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/Makefile" class="js-navigation-open" id="b67911656ef5d18c4ae36cb6741b7965-752394024d313744c886bfb8bbdfd2dff10ec794" title="Makefile">Makefile</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/cbee53b9259e6ebf9d6dea905ebf6c84fa942467" class="message" data-pjax="true" title="Add regression tests for IMPORT FOREIGN SCHEMA and fix a few related bugs.">Add regression tests for IMPORT FOREIGN SCHEMA and fix a few related …</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2015-04-14T13:59:48Z">Apr 14, 2015</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-symlink-file" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM6 4.5l4 3-4 3v-2c-.98-.02-1.84.22-2.55.7-.71.48-1.19 1.25-1.45 2.3.02-1.64.39-2.88 1.13-3.73.73-.84 1.69-1.27 2.88-1.27v-2H6z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/README" class="js-navigation-open" id="c47c7c7383225ab55ff591cb59c41e6b-f285fe3f254bed7adc20d00a38841eb8602b3ae4" title="README">README</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/597dcea179fa46222ed37c2dfa55f12440bcc172" class="message" data-pjax="true" title="Add a symbolic link README to see if that works with GitHub.">Add a symbolic link README to see if that works with GitHub.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2014-12-03T13:50:08Z">Dec 3, 2014</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/README.oracle_fdw" class="js-navigation-open" id="afc074c8d9fe89dfbc9e007ea8c62ee3-859d130e53d80b383b3d74a99e619fb86bbccc57" title="README.oracle_fdw">README.oracle_fdw</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/c51cae58f9ad9f885c371623567098c1db26bf97" class="message" data-pjax="true" title="Introduce table option &quot;prefetch&quot; for Oracle prefetch count
+
+This can speed up foreign table scans.
+
+Also, remove the OCI_ATTR_PREFETCH_MEMORY limit, which turns out not to be
+very useful since it is calculated from the column size definitions rather
+than the actual data size, leading to needlessly high fetch counts for tables
+with column size limits exceeding the actual data length.
+Moreover, this should avoid bug 6039623, so remove that from the README.
+
+Per discussion with by PAscal Lemoy and Maurizio De Giorgi.">Introduce table option "prefetch" for Oracle prefetch count</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-06-27T14:17:05Z">Jun 27, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/TODO" class="js-navigation-open" id="b7b1e314614cf326c6e2b6eba1540682-b3670bb4d206b8c8453346c5b0ad9c299cc2a5d0" title="TODO">TODO</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/e784dbc9782c38c446881f5aec287135e611d827" class="message" data-pjax="true" title="Remove parameterized paths from TODO
+
+Parameterized paths are useful for nested loop joins, but a nested loop
+join with a foreign table on the inner side is a very unlikely option.
+Punting on parameterized paths makes the code simpler.">Remove parameterized paths from TODO</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2015-12-09T10:26:29Z">Dec 9, 2015</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/oracle_fdw--1.0--1.1.sql" class="js-navigation-open" id="6fb107aacd1a8609e6f02b468b98388e-eeb58cdea8d540c534d25aadc6e62093e91b8e1a" title="oracle_fdw--1.0--1.1.sql">oracle_fdw--1.0--1.1.sql</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/c611480b73711dd39274f16b9395cb2bbf8ea4c3" class="message" data-pjax="true" title="Rename oracle_version() to oracle_diag().
+The function has evolved in a way that does not fit the old name any more.">Rename oracle_version() to oracle_diag().</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2014-02-12T14:15:28Z">Feb 12, 2014</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/oracle_fdw--1.1.sql" class="js-navigation-open" id="a3a1b7b5e31cf843efd088bcc75ee5c0-4cf93c81db7dd5ea6353447fa4ff2f12aa018620" title="oracle_fdw--1.1.sql">oracle_fdw--1.1.sql</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/c611480b73711dd39274f16b9395cb2bbf8ea4c3" class="message" data-pjax="true" title="Rename oracle_version() to oracle_diag().
+The function has evolved in a way that does not fit the old name any more.">Rename oracle_version() to oracle_diag().</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2014-02-12T14:15:28Z">Feb 12, 2014</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/oracle_fdw.c" class="js-navigation-open" id="72b991171844f1b822159147a3579f62-fa76f553a81472388f9bb16cadb1a764e1499b1b" title="oracle_fdw.c">oracle_fdw.c</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/71a16afd8d5d054f4876d4fba42becff3c2fbb52" class="message" data-pjax="true" title="Push down arbitrary IN and NOT IN expressions
+
+Up to now, only lists with constants were considered.
+
+This closes #110 by Volkmar Bühringer.">Push down arbitrary IN and NOT IN expressions</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-07-19T14:44:22Z">Jul 19, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/oracle_fdw.control" class="js-navigation-open" id="c9003fd4b69d6ae201842c9db12b42f9-54b55ef9d17145b14320de114e62e69e82314ee5" title="oracle_fdw.control">oracle_fdw.control</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/9b6e4aceea79bc8c3abbe855dd5d4909559cf510" class="message" data-pjax="true" title="Add function oracle_version(name) for diagnostic purposes.
+ATTENTION: Use &quot;ALTER EXTENSION oracle_fdw UPDATE&quot; when upgrading from a previous version of oracle_fdw.">Add function oracle_version(name) for diagnostic purposes.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2014-02-04T15:37:20Z">Feb 4, 2014</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/oracle_fdw.h" class="js-navigation-open" id="53cf93eeb07428b678c44af11544aa9d-ed9a1aa42d8fb0763605dea75fa163b7e988b343" title="oracle_fdw.h">oracle_fdw.h</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/c51cae58f9ad9f885c371623567098c1db26bf97" class="message" data-pjax="true" title="Introduce table option &quot;prefetch&quot; for Oracle prefetch count
+
+This can speed up foreign table scans.
+
+Also, remove the OCI_ATTR_PREFETCH_MEMORY limit, which turns out not to be
+very useful since it is calculated from the column size definitions rather
+than the actual data size, leading to needlessly high fetch counts for tables
+with column size limits exceeding the actual data length.
+Moreover, this should avoid bug 6039623, so remove that from the README.
+
+Per discussion with by PAscal Lemoy and Maurizio De Giorgi.">Introduce table option "prefetch" for Oracle prefetch count</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-06-27T14:17:05Z">Jun 27, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/oracle_gis.c" class="js-navigation-open" id="d1c48c586358b933877c6f09d624f887-40d9dd3bd6d1cebeb28941dbe85fcd6a68fd421a" title="oracle_gis.c">oracle_gis.c</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/a725e10e8e07873ef6d4a881733fa0eba75eec89" class="message" data-pjax="true" title="Throw a meaningful error message for four-dimensional SDO_GEOMETRY objects.">Throw a meaningful error message for four-dimensional SDO_GEOMETRY ob…</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2015-08-25T09:28:22Z">Aug 25, 2015</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/laurenz/oracle_fdw/blob/master/oracle_utils.c" class="js-navigation-open" id="76199f4d58621f6fc0dd604f26fb258b-48438392a52e1c39e1dcb232fd0a9a1509d70dea" title="oracle_utils.c">oracle_utils.c</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/laurenz/oracle_fdw/commit/c51cae58f9ad9f885c371623567098c1db26bf97" class="message" data-pjax="true" title="Introduce table option &quot;prefetch&quot; for Oracle prefetch count
+
+This can speed up foreign table scans.
+
+Also, remove the OCI_ATTR_PREFETCH_MEMORY limit, which turns out not to be
+very useful since it is calculated from the column size definitions rather
+than the actual data size, leading to needlessly high fetch counts for tables
+with column size limits exceeding the actual data length.
+Moreover, this should avoid bug 6039623, so remove that from the README.
+
+Per discussion with by PAscal Lemoy and Maurizio De Giorgi.">Introduce table option "prefetch" for Oracle prefetch count</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-06-27T14:17:05Z">Jun 27, 2016</time-ago></span>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+  <div id="readme" class="readme boxed-group clearfix announce instapaper_body ">
+    <h3>
+      <svg aria-hidden="true" class="octicon octicon-book" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"></path></svg>
+      README
+    </h3>
+
+      <div class="plain"><pre>Foreign Data Wrapper for Oracle
+===============================
+
+oracle_fdw is a PostgreSQL extension that provides a Foreign Data Wrapper for
+easy and efficient access to Oracle databases, including pushdown of WHERE
+conditions and required columns as well as comprehensive EXPLAIN support.
+
+oracle_fdw was written by Laurenz Albe &lt;laurenz.albe@wien.gv.at&gt;
+
+This README contains the following sections:
+
+1. Cookbook
+2. Objects created by the extension
+3. Options
+4. Usage
+5. Installation Requirements
+6. Installation
+7. Internals
+8. Problems
+9. Support
+
+1. Cookbook
+===========
+
+This is a simple example how to use oracle_fdw.
+More detailed information will be provided in the sections "Options" and
+"Usage" below.  You should also read the PostgreSQL documentation on
+foreign data and the commands used in the example.
+
+For the sake of this example, let's assume you can connect as operating system
+user "postgres" (or whoever starts the PostgreSQL server) with the following
+command:
+
+  sqlplus orauser/orapwd@//dbserver.mydomain.com/ORADB
+
+That means that the Oracle client and the environment is set up correctly.
+I also assume that oracle_fdw has been compiled and installed (see section
+"Installation" below).
+
+We want to access a table defined like this:
+
+SQL&gt; DESCRIBE oratab
+ Name                            Null?    Type
+ ------------------------------- -------- ------------
+ ID                              NOT NULL NUMBER(5)
+ TEXT                                     VARCHAR2(30)
+ FLOATING                        NOT NULL NUMBER(7,2)
+
+Then configure oracle_fdw as PostgreSQL superuser like this:
+
+pgdb=# CREATE EXTENSION oracle_fdw;
+pgdb=# CREATE SERVER oradb FOREIGN DATA WRAPPER oracle_fdw
+          OPTIONS (dbserver '//dbserver.mydomain.com/ORADB');
+pgdb=# GRANT USAGE ON FOREIGN SERVER oradb TO pguser;
+
+(You can use other naming methods or local connections, see the description of
+option "dbserver" below.)
+
+Then you can connect to PostgreSQL as "pguser" and define:
+
+pgdb=&gt; CREATE USER MAPPING FOR pguser SERVER oradb
+          OPTIONS (user 'orauser', password 'orapwd');
+
+(You can use external authentication to avoid storing Oracle passwords;
+see below.)
+
+pgdb=&gt; CREATE FOREIGN TABLE oratab (
+          id        integer           OPTIONS (key 'true')  NOT NULL,
+          text      character varying(30),
+          floating  double precision  NOT NULL
+       ) SERVER oradb OPTIONS (schema 'ORAUSER', table 'ORATAB');
+
+(Remember that table and schema name -- the latter is optional -- must
+normally be in uppercase.)
+
+Now you can use the table like a regular PostgreSQL table.
+
+2. Objects created by the extension
+===================================
+
+FUNCTION oracle_fdw_handler() RETURNS fdw_handler
+  Oracle foreign data wrapper handler
+
+FUNCTION oracle_fdw_validator(text[], oid) RETURNS void
+  Oracle foreign data wrapper options validator
+
+These functions are the handler and the validator function necessary to create
+a foreign data wrapper.
+
+The extension automatically creates a foreign data wrapper named "oracle_fdw".
+Normally that's all you need and you can proceed to define foreign servers.
+You can create additional Oracle foreign data wrappers, for example if you
+need to set the "nls_lang" option (you can alter the existing "oracle_fdw"
+wrapper, but all modifications will be lost after a dump/restore).
+
+FUNCTION oracle_close_connections() RETURNS void
+  closes all open Oracle connections
+
+This function can be used to close all open Oracle connections in this session.
+See "Usage" below for when this might be useful.
+
+FUNCTION oracle_diag(name DEFAULT NULL) RETURNS text
+
+This function is useful for diagnostic purposes only.
+It will return the versions of oracle_fdw, PostgreSQL server and Oracle client.
+If called with no argument or NULL, it will additionally return the values of
+some environment variables used for establishing Oracle connections.
+If called with the name of a foreign server, it will additionally return
+the Oracle server version.
+
+3. Options
+==========
+
+Foreign data wrapper options
+----------------------------
+
+(Caution: If you modify the default foreign data wrapper "oracle_fdw",
+any changes will be lost upon dump/restore.  Create a new foreign data wrapper
+if you want the options to be persistent.  The SQL script shipped with the
+software contains a CREATE FOREIGN DATA WRAPPER statement you can use.)
+
+- nls_lang (optional)
+
+  Sets the NLS_LANG environment variable for Oracle to this value.
+  NLS_LANG is in the form &lt;language&gt;_&lt;territory&gt;.&lt;charset&gt; (for example
+  AMERICAN_AMERICA.AL32UTF8).  This must match your database encoding.
+  When this value is not set, oracle_fdw will automatically do the right
+  thing if it can and issue a warning if it cannot.
+  Set this only if you know what you are doing.  See "Problems" below.
+
+Foreign server options
+----------------------
+
+- dbserver (required)
+
+  The Oracle database connection string for the remote database.
+  This can be in any of the forms that Oracle supports as long as your
+  Oracle client is configured accordingly.
+  Set this to an empty string for local ("BEQUEATH") connections.
+
+User mapping options
+--------------------
+
+- user (required)
+
+  The Oracle user name for the session.
+  Set this to an empty string for "external authentication" if you don't
+  want to store Oracle credentials in the PostgreSQL database (one simple way
+  is to use an "external password store").
+
+- password (required)
+
+  The password for the Oracle user.
+
+Foreign table options
+---------------------
+
+- table (required)
+
+  The Oracle table name.  This name must be written exactly as it occurs in
+  Oracle's system catalog, so normally consist of uppercase letters only.
+
+  To define a foreign table based on an arbitrary Oracle query, set this
+  option to the query enclosed in parentheses, e.g.
+     OPTIONS (table '(SELECT col FROM tab WHERE val = ''string'')')
+  Do not set the "schema" option in this case.
+  INSERT, UPDATE and DELETE will work on foreign tables defined on simple
+  queries; if you want to avoid that (or confusing Oracle error messages
+  for more complicated queries), use the table option "readonly".
+
+- schema (optional)
+
+  The table's schema (or owner).  Useful to access tables that do not belong
+  to the connecting Oracle user.  This name must be written exactly as it
+  occurs in Oracle's system catalog, so normally consist of uppercase letters
+  only.
+
+- plan_costs (deprecated, optional, defaults to "off")
+
+  This option will not work with Oracle 9i or older (see "Problems" below).
+
+  If set to yes/on/true, Oracle's cost estimates will be used.  The problem is
+  that Oracle gives good estimates for the result size, but not for the cost
+  of the execution (the only estimate you can get is "execution time" in second
+  granularity).
+  Since this cost estimate is almost useless but expensive to collect,
+  oracle_fdw by default does not bother to get Oracle's cost estimates and
+  estimates the cost to 10000+10*(row count) regardless of the actual query.
+
+  From PostgreSQL 9.2 on, it is usually better to gather statistics on the
+  foreign table (see ANALYZE below) and keep this option disabled.
+
+  Turn this on only if a) query execution is expensive and b) it has a positive
+  influence on PostgreSQL query planning.
+  This option is deprecated and will be removed in a future release.
+
+- max_long (optional, defaults to "32767")
+
+  The maximal length of any LONG or LONG RAW columns in the Oracle table.
+  Possible values are integers between 1 and 1073741823 (the maximal size of a
+  bytea in PostgreSQL).  This amount of memory will be allocated at least
+  twice, so large values will consume a lot of memory.
+  If "max_long" is less than the length of the longest value retrieved,
+  you will receive the error message "ORA-01406: fetched column value was
+  truncated".
+
+- readonly (optional, defaults to "false")
+
+  INSERT, UPDATE and DELETE is only allowed on tables where this option is
+  not set to yes/on/true.  Since these statements can only be executed from
+  PostgreSQL 9.3 on, setting this option has no effect on earlier versions.
+  It might still be a good idea to set it in PostgreSQL 9.2 and earlier
+  on tables that you do not wish to be changed, to be prepared for an upgrade
+  to PostgreSQL 9.3 or later.
+
+- sample_percent (optional, defaults to 100)
+
+  This option only influences ANALYZE processing and can be useful to ANALYZE
+  very large tables in a reasonable time.
+
+  The value must be between 0.000001 and 100 and defines the percentage of
+  Oracle table blocks that will be randomly selected to calculate PostgreSQL
+  table statistics.  This is accomplished using the "SAMPLE BLOCK (x)"
+  clause in Oracle.
+
+  ANALYZE will fail with ORA-00933 for tables defined with Oracle queries and
+  may fail with ORA-01446 for tables defined with complex Oracle views.
+
+- prefetch (optional, defaults to 200)
+
+  Sets the number of rows that will be fetched with a single round-trip between
+  PostgreSQL and Oracle during a foreign table scan.  This is implemented using
+  Oracle row prefetching.  The value must be between 0 and 10240, where a value
+  of zero disables prefetching.
+
+  Higher values can speed up performance, but will use more memory on the
+  PostgreSQL server.
+
+Column options (from PostgreSQL 9.2 on)
+---------------------------------------
+
+- key (optional, defaults to "false")
+
+  If set to yes/on/true, the corresponding column on the foreign Oracle table
+  is considered a primary key column.
+  For UPDATE and DELETE to work, you must set this option on all columns
+  that belong to the table's primary key.
+
+4. Usage
+========
+
+Oracle permissions
+------------------
+
+The Oracle user will obviously need CREATE SESSION privilege and the right
+to select from the table or view in question.
+
+For EXPLAIN VERBOSE (and query planning if "plan_costs" is turned on),
+the user will also need SELECT privileges on V$SQL and V$SQL_PLAN.
+
+Connections
+-----------
+
+oracle_fdw caches Oracle connections because it is expensive to create an
+Oracle session for each individual query.  All connections are automatically
+closed when the PostgreSQL session ends.
+
+The function oracle_close_connections() can be used to close all cached Oracle
+connections.  This can be useful for long-running sessions that don't access
+foreign tables all the time and want to avoid blocking the resources needed
+by an open Oracle connection.
+You cannot call this function inside a transaction that modifies Oracle data.
+
+Columns
+-------
+
+When you define a foreign table, the columns of the Oracle table are mapped
+to the PostgreSQL columns in the order of their definition.
+
+oracle_fdw will only include those columns in the Oracle query that are
+actually needed by the PostgreSQL query.
+
+The PostgreSQL table can have more or less columns than the Oracle table.
+If it has more columns, and these columns are used, you will receive a warning
+and NULL values will be returned.
+
+If you want to UPDATE or DELETE, make sure that the "key" option is set on all
+columns that belong to the table's primary key.  Failure to do so will result
+in errors.
+
+Data types
+----------
+
+You must define the PostgreSQL columns with data types that oracle_fdw can
+translate (see the conversion table below).  This restriction is only enforced
+if the column actually gets used, so you can define "dummy" columns for
+untranslatable data types as long as you don't access them (this trick only
+works with SELECT, not when modifying foreign data).  If an Oracle value
+exceeds the size of the PostgreSQL column (e.g., the length of a varchar
+column or the maximal integer value), you will receive a runtime error.
+
+These conversions are automatically handled by oracle_fdw:
+
+Oracle type                    | Possible PostgreSQL types
+-------------------------------+---------------------------------------------
+CHAR                           | char, varchar, text
+NCHAR                          | char, varchar, text
+VARCHAR                        | char, varchar, text
+VARCHAR2                       | char, varchar, text
+NVARCHAR2                      | char, varchar, text
+CLOB                           | char, varchar, text
+LONG                           | char, varchar, text
+RAW                            | uuid, bytea
+BLOB                           | bytea
+BFILE                          | bytea (read-only)
+LONG RAW                       | bytea
+NUMBER                         | numeric, float4, float8, char, varchar, text
+NUMBER(n,m) with m&lt;=0          | numeric, float4, float8, int2, int4, int8,
+                               |   boolean, char, varchar, text
+FLOAT                          | numeric, float4, float8, char, varchar, text
+BINARY_FLOAT                   | numeric, float4, float8, char, varchar, text
+BINARY_DOUBLE                  | numeric, float4, float8, char, varchar, text
+DATE                           | date, timestamp, timestamptz, char,
+                               |   varchar, text
+TIMESTAMP                      | date, timestamp, timestamptz, char,
+                               |   varchar, text
+TIMESTAMP WITH TIME ZOME       | date, timestamp, timestamptz, char,
+                               |   varchar, text
+TIMESTAMP WITH LOCAL TIME ZOME | date, timestamp, timestamptz, char,
+                               |   varchar, text
+INTERVAL YEAR TO MONTH         | interval, char, varchar, text
+INTERVAL DAY TO SECOND         | interval, char, varchar, text
+MDSYS.SDO_GEOMETRY             | geometry (see "PostGIS support" below)
+
+If a NUMBER is converted to a boolean, "0" means "false", everything else "true".
+
+NCLOB is currently not supported because Oracle cannot automatically convert
+it to the client encoding.
+
+If you need conversions exceeding the above, define an appropriate view in
+Oracle or PostgreSQL.
+
+WHERE conditions
+----------------
+
+PostgreSQL will use all applicaple parts of the WHERE clause as a filter
+for the scan.  The Oracle query that oracle_fdw constructs will contain a WHERE
+clause corresponding to these filter criteria whenever such a condition can
+safely be translated to Oracle SQL.  This feature, also known as "push-down
+of WHERE clauses", can greatly reduce the number of rows retrieved from Oracle
+and may enable Oracle's optimizer to choose a good plan for accessing the
+required tables.
+
+To make use of that, try to use simple conditions for the foreign table.
+Choose PostgreSQL column data types that correspond to Oracle's types,
+because otherwise conditions cannot be translated.
+
+The expressions "now()", "transaction_timestamp()", "current_timestamp",
+"current_date" and "localtimestamp" will be translated correctly.
+
+The output of EXPLAIN will show the Oracle query used, so you can see which
+conditions were translated to Oracle and how.
+
+Modifying foreign data
+----------------------
+
+From PostgreSQL 9.3 on, oracle_fdw supports INSERT, UPDATE and DELETE on
+foreign tables.  This is allowed by default (also in databases upgraded
+from an earlier PostgreSQL release) and can be disabled by setting the
+"readonly" table option.
+
+For UPDATE and DELETE to work, the columns corresponding to the primary
+key columns of the Oracle table must have the "key" column option set.
+These columns are used to identify a foreign table row, so make sure that
+the option is set on *all* columns that belong to the primary key.
+
+If you omit a foreign table column during INSERT, that column is set to
+the value defined in the DEFAULT clause on the PostgreSQL foreign table
+(or NULL if there is no DEFAULT clause).  DEFAULT clauses on the
+corresponding Oracle columns are not used.
+If the PostgreSQL foreign table does not include all columns of the
+Oracle table, the Oracle DEFAULT clauses will be used for the columns not
+included in the foreign table definition.
+
+The RETURNING clause on INSERT, UPDATE and DELETE is supported except
+for columns with Oracle data types LONG and LONG RAW (Oracle doesn't support
+these data types in the RETURNING clause).
+
+Triggers on foreign tables are supported from PostgreSQL 9.4.
+Triggers defined with AFTER and FOR EACH ROW require that the foreign table
+has no columns with Oracle data type LONG or LONG RAW.  This is because
+such triggers make use of the RETURNING clause mentioned above.
+
+While modifying foreign data works, the performance is not particularly
+good, specifically when many rows are affected, because (owing to the way
+foreign data wrappers work) each row has to be treated individually.
+
+Transactions are forwarded to Oracle, so BEGIN, COMMIT, ROLLBACK and
+SAVEPOINT work as expected.  Prepared statements involving Oracle are
+not supported.  See "Internals" for details.
+
+Since oracle_fdw uses serialized transactions, it is possible that
+data modifying statements lead to a serialization failure:
+
+  ORA-08177: can't serialize access for this transaction
+
+This can happen if concurrent transactions modify the table and gets more
+likely in long running transactions.  Such errors can be identified by their
+SQLSTATE (40001).  An application using oracle_fdw should retry transactions
+that fail with this error.
+
+EXPLAIN
+-------
+
+PostgreSQL's EXPLAIN will show the query that is actually issued to Oracle.
+EXPLAIN VERBOSE will show Oracle's execution plan (that will not work with
+Oracle server 9i or older, see "Problems" below).
+
+ANALYZE
+-------
+
+From PostgreSQL version 9.2 on, you can use ANALYZE to gather statistics
+on a foreign table.  This is supported by oracle_fdw.
+Statistics will be used for query planning, and for many queries will
+result in good (and much faster) row count estimates even if the table option
+"plan_costs" is turned off as long as the statistics are accurate.
+
+Keep in mind that analyzing an Oracle foreign table will result in a full
+sequential table scan.  You can use the table option "sample_percent" to
+speed this up by using only a sample of the Oracle table.
+
+PostGIS support
+---------------
+
+The data type "geometry" is only available when PostGIS is installed.
+
+The only supported geometry types are POINT, LINE, POLYGON, MULTIPOINT,
+MULTILINE and MULTIPOLYGON in two and three dimensions.
+Empty PostGIS geometries are not supported because they have no equivalent
+in Oracle Spatial.
+
+NULL values for Oracle SRID will be converted to 0 and vice versa.
+For other conversions between Oracle SRID and PostGIS SRID, create a file
+"srid.map" in the PostgreSQL "share" directory.  Each line of this file
+shall contain an Oracle SRID and the corresponding PostGIS SRID, separated
+by whitespace.  Keep the file small for good performance.
+
+Support for IMPORT FOREIGN SCHEMA
+---------------------------------
+
+From PostgreSQL 9.5 on, IMPORT FOREIGN SCHEMA is supported to bulk import
+table definitions for all tables in an Oracle schema.
+In addition to the documentation of IMPORT FOREIGN SCHEMA, consider the
+following:
+
+- IMPORT FOREIGN SCHEMA will create foreign tables for all objects found in
+  ALL_TAB_COLUMNS.  That includes tables, views and materialized views,
+  but not synonyms.
+
+- There are two supported options for IMPORT FOREIGN SCHEMA:
+  - "case": controls case folding for table and column names during import.
+    The possible values are:
+      "keep": leave the names as they are in Oracle, usually in upper case.
+      "lower": translate all table and column names to lower case.
+      "smart": only translate names that are all upper case in Oracle
+               (this is the default).
+  - "readonly" (boolean): controls if imported tables can be modified.
+    If set to "true", all imported tables are created with the foreign
+    table option "readonly" set to "true" (see "Options" above).
+    The default is "false".
+
+- The Oracle schema name must be written exactly as it is in Oracle, so
+  normally in upper case.  Since PostgreSQL translates names to lower case
+  before processing, you must protect the schema name with double quotes
+  (for example "SCOTT").
+
+- Table names in the LIMIT TO or EXCEPT clause must be written as they
+  will appear in PostgreSQL after the case folding described above.
+
+5. Installation Requirements
+============================
+
+oracle_fdw should compile and run on any platform supported by PostgreSQL and
+Oracle client, although I could only test it on Linux and Windows.
+
+PostgreSQL 9.1 or better is required.
+Support for ANALYZE is available from PostgreSQL 9.2 on.
+Support for INSERT, UPDATE and DELETE is available from PostgreSQL 9.3 on.
+
+Oracle client version 10.1 or better is required.
+oracle_fdw can be built and used with Oracle Instant Client as well as with
+Oracle Client and Server installations installed with Universal Installer.
+Binaries compiled with Oracle Client 10 can be used with later client versions
+without recompilation or relink.
+
+The supported Oracle server versions depend on the used client version (see the
+Oracle Client/Server Interoperability Matrix in support document 207303.1).
+For maximum coverage use Oracle Client 10.2.0.5, as this will allow you to
+connect to every server version from 8.1.7 to 12.1.0 except 9.0.1.
+PostgreSQL and Oracle need to have the same architecture, for example you
+cannot have 32-bit software for the one and 64-bit software for the other.
+
+It is advisable to use the latest Patch Set on both Oracle client and server,
+particularly with desupported Oracle versions.
+For a list of Oracle bugs that are known to affect oracle_fdw's usability,
+see the "Problems" section below.
+Consult the oracle_fdw Wiki (<a href="https://github.com/laurenz/oracle_fdw/wiki">https://github.com/laurenz/oracle_fdw/wiki</a>)
+for tips about Oracle installation and configuration and share your own
+knowledge there.
+
+6. Installation
+===============
+
+If you use a binary distribution of oracle_fdw, skip to "Installing the
+extension" below.
+
+Building oracle_fdw:
+--------------------
+
+oracle_fdw has been written as a PostgreSQL extension and uses the Extension
+Building Infrastructure "PGXS".  It should be easy to install.
+
+You will need PostgreSQL headers and PGXS installed (if your PostgreSQL was
+installed with packages, install the development package).
+You need to install Oracle's C header files as well (SDK package for Instant
+Client).
+
+Make sure that PostgreSQL is configured "--without-ldap" (at least the server).
+See "Problems" below.
+
+Make sure that "pg_config" is in the PATH (test with "pg_config --pgxs").
+Set the environment variable ORACLE_HOME to the location of the Oracle
+installation.
+
+Unpack the source code of oracle_fdw and change into the directory.
+Then the software installation should be as simple as
+
+  $ make
+  $ make install
+
+For the second step you need write permission on the directories where
+PostgreSQL is installed.
+
+If you want to build oracle_fdw in a source tree of PostgreSQL, use
+
+ $ make NO_PGXS=1
+
+Installing the extension:
+-------------------------
+
+Make sure that the oracle_fdw shared library is installed in the PostgreSQL
+library directory and that oracle_fdw.control and the SQL files are in
+the PostgreSQL extension directory.
+
+Since the Oracle client shared library is probably not in the standard
+library path, you have to make sure that the PostgreSQL server will be able
+to find it.  How this is done varies from operating system to operating
+system; on Linux you can set LD_LIBRARY_PATH or use /etc/ld.so.conf.
+
+Make sure that all necessary Oracle environment variables are set in the
+environment of the PostgreSQL server process (ORACLE_HOME if you don't use
+Instant Client, TNS_ADMIN if you have configuration files, etc.)
+
+To install the extension in a database, connect as superuser and
+
+  CREATE EXTENSION oracle_fdw;
+
+That will define the required functions and create a foreign data wrapper.
+
+To upgrade from an oracle_fdw version before 1.0.0, use
+
+  ALTER EXTENSION oracle_fdw UPDATE;
+
+Running the regression tests:
+-----------------------------
+
+Unless you are developing oracle_fdw or want to test its functionality
+on an exotic platform, you don't have to do this.
+
+For the regression tests to work, you must have a PostgreSQL cluster
+(9.3 or better) and an Oracle server (10.1 or better with Locator or Spatial)
+running, and the oracle_fdw binaries must be installed.
+The regression tests will create a database called "contrib_regression" and
+run a number of tests.  For the PostGIS regression tests to succeed,
+the PostGIS binaries must be installed.
+
+The Oracle database must be prepared as follows:
+- A user "scott" with password "tiger" must exist (unless you want to edit
+  the regression test scripts).  The user needs CREATE SESSION and CREATE TABLE
+  system privileges and enough quota on its default tablespace, as well as
+  SELECT privileges on V$SQL and V$SQL_PLAN.
+- Two tables must be created as follows:
+  CREATE TABLE scott.typetest1 (
+     id  NUMBER(5)
+        CONSTRAINT typetest1_pkey PRIMARY KEY,
+     c   CHAR(10 CHAR),
+     nc  NCHAR(10),
+     vc  VARCHAR2(10 CHAR),
+     nvc NVARCHAR2(10),
+     lc  CLOB,
+     r   RAW(10),
+     u   RAW(16),
+     lb  BLOB,
+     lr  LONG RAW,
+     b   NUMBER(1),
+     num NUMBER(7,5),
+     fl  BINARY_FLOAT,
+     db  BINARY_DOUBLE,
+     d   DATE,
+     ts  TIMESTAMP WITH TIME ZONE,
+     ids INTERVAL DAY TO SECOND,
+     iym INTERVAL YEAR TO MONTH
+  ) SEGMENT CREATION IMMEDIATE;
+
+  CREATE TABLE scott.gis (
+     id  NUMBER(5) PRIMARY KEY,
+     g   MDSYS.SDO_GEOMETRY
+  ) SEGMENT CREATION IMMEDIATE;
+
+Set the environment for the PostgreSQL server so that it can establish an
+Oracle connection without connect string:
+If the Oracle server is on the same machine, set the environment variables
+ORACLE_SID and ORACLE_HOME appropriately, for a remote server set the
+environment variable TWO_TASK (or LOCAL on Windows) to the connect string.
+
+The regression tests are run as follows:
+
+  $ make installcheck
+
+7. Internals
+============
+
+oracle_fdw sets the MODULE of the Oracle session to "postgres" and the
+ACTION to the backend process number.  This can help identifying the Oracle
+session and allows you to trace it with DBMS_MONITOR.SERV_MOD_ACT_TRACE_ENABLE.
+
+oracle_fdw uses Oracle's result prefetching to avoid unnecessary client-server
+round-trips.  The prefetch row count can be configured with the "prefetch"
+table option and is set to 200 by default.
+
+Rather than using a PLAN_TABLE to explain an Oracle query (which would require
+such a table to be created in the Oracle database), oracle_fdw uses execution
+plans stored in the library cache.  For that, an Oracle query is "explicitly
+described", which forces Oracle to parse the query.  The hard part is to find
+the SQL_ID and CHILD_NUMBER of the statement in V$SQL because the SQL_TEXT
+column contains only the first 1000 bytes of the query.
+Therefore, oracle_fdw adds a comment to the query that contains an MD5 hash
+of the query text.  This is used to search in V$SQL.
+The actual execution plan or cost information is retrieved from V$SQL_PLAN.
+
+oracle_fdw uses transaction isolation level "serializable" on the Oracle side,
+which corresponds to PostgreSQL's repeatable read.  This is necessary because
+a single PostgreSQL statement can lead to multiple Oracle queries (e.g. during
+a nested loop join) and the results need to be consistent.
+
+The Oracle transaction is committed immediately before the local transaction
+commits, so that a completed PostgreSQL transaction guarantees that the Oracle
+transaction has completed.  However, there is a small chance that the
+PostgreSQL transaction cannot complete even though the Oracle transaction
+is committed.  This cannot be avoided without using two-phase transactions
+and a transaction manager, which is clearly beyond what a foreign data wrapper
+can reasonably provide.
+Prepared statements involving Oracle are not supported for the same reason.
+
+8. Problems
+===========
+
+Encoding
+--------
+
+Characters stored in an Oracle database that cannot be converted to the
+PostgreSQL database encoding will silently be replaced by "replacement
+characters", typically a normal or inverted question mark, by Oracle.
+You will get no warning or error messages.
+
+If you use a PostgreSQL database encoding that Oracle does not know
+(currently, these are EUC_CN, EUC_KR, LATIN10, MULE_INTERNAL, WIN874
+and SQL_ASCII), non-ASCII characters cannot be translated correctly.
+You will get a warning in this case, and the characters will be replaced
+by replacement characters as described above.
+
+You can set the "nls_lang" option of the foreign data wrapper to force a
+certain Oracle encoding, but the resulting characters will most likely be
+incorrect and lead to PostgreSQL error messages.  This is probably only
+useful for SQL_ASCII encoding if you know what you are doing.
+See "Options" above.
+
+Planning
+--------
+
+Oracle's planner does not give good cost estimates (you can only get the
+estimated execution time in second granularity, and it is never less than
+one).  So by default, oracle_fdw does not use these estimates.
+See the description of the "plan_costs" option above.
+
+Even without that, the current implementation of oracle_fdw requires
+calls to the Oracle server for every foreign table during query planning.
+That means that there might be a noticeable performance improvement
+if query plans are cached, for example by using prepared statements or
+PL/pgSQL functions.
+
+Limited functionality in old Oracle versions
+--------------------------------------------
+
+The definition of the Oracle system catalogs V$SQL and V$SQL_PLAN has
+changed with Oracle 10.1.  Using EXPLAIN VERBOSE or the "plan_costs" option
+with such Oracle server versions will result in errors like
+
+ERROR:  error describing query: OCIStmtExecute failed to execute
+        remote query for sql_id
+DETAIL:  ORA-00904: "LAST_ACTIVE_TIME": invalid identifier
+
+There is no plan to fix this, since Oracle 9i has been out of Extended Support
+since 2010 and the functionality is not essential.
+
+LDAP libraries
+--------------
+
+The Oracle client shared library comes with its own LDAP client
+implementation conforming to RFC 1823, so these functions have the same
+names as OpenLDAP's.  This will lead to a name collision when the PostgreSQL
+server was configured "--with-ldap".
+
+The name collision will not be detected, because oracle_fdw is loaded at
+runtime, but trouble will happen if anybody calls an LDAP function.
+Typically, OpenLDAP is loaded first, so if Oracle calls an LDAP function
+(for example if you use "directory naming" name resolution), the backend
+will crash.  This can lead to messages like the following (seen on Linux)
+in the PostgreSQL server log:
+
+  ../../../libraries/libldap/getentry.c:29: ldap_first_entry:
+  Assertion `( (ld)-&gt;ld_options.ldo_valid == 0x2 )' failed.
+
+The best thing is to configure PostgreSQL "--without-ldap".  This is the only
+safe way to avoid this problem.
+Even when PostgreSQL is built "--with-ldap", it may work as long as you don't
+use any LDAP client functionality in Oracle.
+On some platforms, you can force Oracle's client shared library to be loaded
+before the PostgreSQL server is started (LD_PRELOAD on Linux).  Then Oracle's
+LDAP functions should get used.  In that case, Oracle may be able to use
+LDAP functionality, but using LDAP from PostgreSQL will crash the backend.
+
+You cannot use LDAP functionality both in PostgreSQL and in Oracle, period.
+
+Serialization errors
+--------------------
+
+In Oracle 11.2 or above, inserting the first row into a newly created
+Oracle table with oracle_fdw will lead to a serialization error.
+
+This is because of an Oracle feature called "deferred segment creation" which
+defers allocation of storage space for a new table until the first row
+is inserted.  This causes a serialization failure with serializable
+transactions (see document 1285464.1 in Oracle's knowledge base).
+
+This is no serious problem; you can work around it by either ignoring that
+first error or creating the table with "SEGMENT CREATION IMMEDIATE".
+
+Oracle bugs
+-----------
+
+This is a list of Oracle bugs that have affected oracle_fdw in the past.
+
+Bug 2728408 can cause "ORA-8177 cannot serialize access for this transaction"
+even if no modification of remote data is attempted.
+It can occur with Oracle server 8.1.7.4 (install one-off patch 2728408) or
+Oracle server 9.2 (install Patch Set 9.2.0.4 or better).
+
+9. Support
+==========
+
+If you want to report a problem with oracle_fdw, and the name of the
+foreign server is (for example) "ora_serv", please include the output of
+
+  SELECT oracle_diag('ora_serv');
+
+in your problem report.
+If that causes an error, please also include the output of
+
+  SELECT oracle_diag();
+
+If you have a problem or question or any kind of feedback, the preferred
+option is to open an issue on GitHub:
+<a href="https://github.com/laurenz/oracle_fdw/issues">https://github.com/laurenz/oracle_fdw/issues</a>
+This requires a GitHub account.
+
+You can send an e-mail to oracle-fdw-general@lists.pgfoundry.org
+This requires that you subscribe here:
+<a href="http://lists.pgfoundry.org/mailman/listinfo/oracle-fdw-general">http://lists.pgfoundry.org/mailman/listinfo/oracle-fdw-general</a>
+There is a mail archive here:
+<a href="http://lists.pgfoundry.org/pipermail/oracle-fdw-general/">http://lists.pgfoundry.org/pipermail/oracle-fdw-general/</a>
+
+There is the option to open an issue on GitHub:
+
+I will also answer e-mail sent to me at laurenz.albe@wien.gv.at, but that way
+you exclude others from helping you or benefiting from your experience.
+</pre></div>
+  </div>
+
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+
+    </div>
+  </div>
+
+    </div>
+
+        <div class="container site-footer-container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact GitHub</a></li>
+      <li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com" aria-label="Homepage" class="site-footer-mark" title="GitHub">
+      <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+</a>
+    <ul class="site-footer-links">
+      <li>&copy; 2016 <span title="0.15395s from github-fe165-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+    
+
+    <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"></path></svg>
+      <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+        <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
+      </button>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      
+      <script crossorigin="anonymous" integrity="sha256-QEzdGt0fcQ2wFqAuXjH/+KkInRT/DCJ9+GK3gIhtt9U=" src="https://assets-cdn.github.com/assets/frameworks-404cdd1add1f710db016a02e5e31fff8a9089d14ff0c227df862b780886db7d5.js"></script>
+      <script async="async" crossorigin="anonymous" integrity="sha256-vabI89d3JD+RkvdyXWgGc6oTOU6u7lCB5T8A5C6VACg=" src="https://assets-cdn.github.com/assets/github-bda6c8f3d777243f9192f7725d680673aa13394eaeee5081e53f00e42e950028.js"></script>
+      
+      
+      
+      
+      
+      
+    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner hidden">
+      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"></path></svg>
+      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    </div>
+    <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
+    </button>
+  </div>
+</div>
+
+  </body>
+</html>
+
