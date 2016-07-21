@@ -13,6 +13,16 @@ class ApiDogList(models.Model):
     }
 
     _name = 'onyma.api_dog_list'
+    _table = 'onyma.api_dog_list'
+
+    def create(self):
+        pass
+
+    def write(self):
+        pass
+
+    def unlink(self):
+        pass
 
     #id = fields.Integer(related='dogid')
     dogid = fields.Integer()
