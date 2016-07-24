@@ -45,3 +45,17 @@ CREATE FOREIGN TABLE dual (
 ) SERVER onyma_ttk OPTIONS (table 'DUAL');
 
 */
+
+create table NVR_ATTR_LIST as
+select
+	ada.DOGID*10000 + ada.attrid as id
+	, ada.DOGID
+  , ada.attrid
+	, ada.VALUE
+	, ada.DAY
+from o_mdb.API_DOG_ATTRIB ada
+join api_dog_list adl on ada.dogid = adl.dogid
+where
+  1 = 1
+	and adl.GID = 24193
+	and ada.DAY = trunc(sysdate, 'day')

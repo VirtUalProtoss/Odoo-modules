@@ -72,7 +72,7 @@
 
         <record model="ir.ui.view" id="onyma.dogs_list">
             <field name="name">dogs_list</field>
-            <field name="model">onyma.api_dog_list</field>
+            <field name="model">onyma.apidoglist</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="dog_type"/>
@@ -87,7 +87,7 @@
 
         <record model="ir.ui.view" id="onyma.dogs_form">
             <field name="name">dogs_form</field>
-            <field name="model">onyma.api_dog_list</field>
+            <field name="model">onyma.apidoglist</field>
             <field name="arch" type="xml">
                 <form string="Dogovor">
                     <sheet>
@@ -132,9 +132,9 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record model="ir.actions.act_window" id="onyma_api_dog_list_action_window">
+        <record model="ir.actions.act_window" id="onyma_apidoglist_action_window">
             <field name="name">api_dog_list</field>
-            <field name="res_model">onyma.api_dog_list</field>
+            <field name="res_model">onyma.apidoglist</field>
             <field name="view_mode">tree,form</field>
         </record>
 
@@ -144,7 +144,7 @@
         <menuitem name="Сервера" id="onyma.servers" parent="onyma.root" action="onyma_servers_action_window"/>
         <menuitem name="Операторы" id="onyma.operators" parent="onyma.root" action="onyma_operators_action_window"/>
         <menuitem name="Платежи" id="onyma.payments" parent="onyma.root" action="onyma_payments_action_window"/>
-        <menuitem name="Клиенты" id="onyma.api_dog_list" parent="onyma.root" action="onyma_api_dog_list_action_window"/>
+        <menuitem name="Клиенты" id="onyma.api_dog_list" parent="onyma.root" action="onyma_apidoglist_action_window"/>
 
     </data>
 </openerp>

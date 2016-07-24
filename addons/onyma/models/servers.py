@@ -130,7 +130,7 @@ class OnymaServers(models.Model):
             if rec['dogid'] not in dog_ids:
                 dog_ids.append(rec['dogid'])
 
-        self.get_onyma_data_by_payments('onyma.api_dog_list', 'dogid', dog_ids)
+        self.get_onyma_data_by_payments('onyma.apidoglist', 'dogid', dog_ids)
         self.get_onyma_data_by_payments('onyma.operators', 'operid', oper_ids)
 
 
@@ -149,7 +149,7 @@ class OnymaServers(models.Model):
                         'ppdate': rec['ppdate'].strftime('%Y-%m-%d'),
                         'operid': self.env['onyma.operators'].search([('operid', '=', rec['operid'])])[0].id,
                         'amount': rec['amount'],
-                        'client_id': self.env['onyma.api_dog_list'].search([('dogid', '=', rec['dogid'])])[0].id,
+                        'client_id': self.env['onyma.apidoglist'].search([('dogid', '=', rec['dogid'])])[0].id,
                         'billid': rec['billid'],
                         'rmrk': rec['rmrk'],
                         'ntype': rec['ntype'],
@@ -266,7 +266,7 @@ class OnymaServers(models.Model):
             if rec not in odoo_cids:
                 if model == 'onyma.operators':
                     nrec = self.get_operator(rec)
-                elif model == 'onyma.api_dog_list':
+                elif model == 'onyma.apidoglist':
                     nrec = self.get_dog(rec)
                 else:
                     pass

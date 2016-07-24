@@ -12,8 +12,12 @@ class ApiDogList(models.Model):
         'yl': [26, ],
     }
 
-    _name = 'onyma.api_dog_list'
-    _table = 'onyma.api_dog_list'
+    _name = 'onyma.apidoglist'
+    _table = 'apidoglist'
+
+    def __init__(self, pool, cr):
+        models.Model.__init__(self, pool, cr)
+        self._auto = False
 
     def create(self):
         pass
@@ -37,10 +41,10 @@ class ApiDogList(models.Model):
     csid = fields.Integer()
     utid = fields.Integer()
 
-    name = fields.Char(compute='get_client_name', client='Клиент', store=True)
+    name = fields.Char(compute='get_client_name', client='Клиент')
     dog_type = fields.Char(compute='get_dogtype', string='Тип договора')
     payment_ids = fields.One2many('onyma.payments', 'client_id')
-
+    attr_ids = fields.One2many('onyma.apidogattrib', 'dogid')
 
     @api.one
     def get_dogtype(self):
@@ -63,24 +67,33 @@ class ApiDogList(models.Model):
             attrid = 12
         else:
             attrid = 12
-        name = self.get_add_dog_attrib(attrid)
+        name = self.get_add_dog_attrib(attrid)[0]
         self.name = name
         return name
 
     @api.one
     def get_add_dog_attrib(self, attrid, pdate=date.today(), format=('%Y-%m-%d', 'yyyy-mm-dd')):
-        rec = self.env['onyma.servers'].search([('name', '=', 'ЦБ ТТК')])
-        auth_params = rec.get_auth_params()[0]
-        conn = connection(rec, auth_params)
-        sql = '''
-            select value
-            from api_dog_attrib
-            where
-                dogid = %(dogid)d
-                and attrid = %(attrid)d
-                and day = to_date('%(pdate)s', '%(format)s')
-        '''
+        client_name = None
+        for rec in self.attr_ids:
+            if rec.attrid == attrid:
+                if rec.value:
+                    client_name = rec.value.encode('utf-8')
 
+        #rec = self.env['onyma.onyma_apidogattrib'].search([('attrid', '=', attrid), ('dogid', '=', self.dogid)])
+        ##if rec.id:
+        #   client_name = rec.value
+        #auth_params = rec.get_auth_params()[0]
+        #conn = connection(rec, auth_params)
+        #sql = '''
+        #    select value
+        #    from api_dog_attrib
+        #    where
+        #        dogid = %(dogid)d
+        #        and attrid = %(attrid)d
+        #        and day = to_date('%(pdate)s', '%(format)s')
+        #'''
+
+        '''
         result = conn.exec_sql(sql %({
             'dogid': self.dogid,
             'attrid': attrid,
@@ -93,5 +106,5 @@ class ApiDogList(models.Model):
         for rec in recs:
             print 'attr', attrid, 'is', rec['value']
             client_name = rec['value']
-
+        '''
         return client_name

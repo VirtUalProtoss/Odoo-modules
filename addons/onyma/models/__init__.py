@@ -5,3 +5,4 @@ import servers
 import payments
 import operators
 import apidoglist
+import apidogattrib
