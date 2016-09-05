@@ -1,6 +1,6 @@
 <openerp>
     <data>
-        <record id="employee_ssa" model="hr.employee">
+        <record id="employee_sobol_sa" model="hr.employee">
             <field name="name">Соболевский Сергей Александрович</field>
             <field name="department_id" ref="hr.dep_rd"/>
             <field name="job_id" ref="hr.job_developer"/>
@@ -15,14 +15,14 @@
             <field name="name">Проектный менеджер</field>
             <field name="status_id" ref="status_in_work"/>
             <field name="type_id" ref="project_type_design_software"/>
-            <field name="owner_id" ref="employee_ssa"/>
+            <field name="owner_id" ref="employee_sobol_sa"/>
         </record>
 
         <record model="projects.tasks" id="task_project_module">
             <field name="name">Модуль "Проекты"</field>
             <field name="status_id" ref="status_in_work"/>
             <field name="project_id" ref="project_manager"/>
-            <field name="owner_id" ref="employee_ssa"/>
+            <field name="owner_id" ref="employee_sobol_sa"/>
             <field name="date_start">2016-07-17</field>
         </record>
 
@@ -30,7 +30,7 @@
             <field name="name">Модуль "Ресурсы"</field>
             <field name="status_id" ref="status_in_work"/>
             <field name="project_id" ref="project_manager"/>
-            <field name="owner_id" ref="employee_ssa"/>
+            <field name="owner_id" ref="employee_sobol_sa"/>
             <field name="date_start">2016-07-17</field>
         </record>
 
@@ -41,7 +41,7 @@
             <field name="date_start">2016-07-17</field>
             <field name="planned_time">2016-07-27</field>
             <field name="task_id" ref="task_project_module"/>
-            <field name="owner_id" ref="employee_ssa"/>
+            <field name="owner_id" ref="employee_sobol_sa"/>
             <field name="type_id" ref="work_type_normal"/>
         </record>
 
@@ -52,7 +52,7 @@
             <field name="date_start">2016-07-17</field>
             <field name="planned_time">2016-08-15</field>
             <field name="task_id" ref="task_project_module"/>
-            <field name="owner_id" ref="employee_ssa"/>
+            <field name="owner_id" ref="employee_sobol_sa"/>
             <field name="type_id" ref="work_type_normal"/>
         </record>
 
@@ -60,7 +60,7 @@
             <field name="text">Формы деревянные, надо что-то делать с этим...</field>
             <field name="date_comment">2016-07-17 10:03:54 Europe/Moscow</field>
             <field name="work_id" ref="work_dynamic_forms"/>
-            <field name="employee_id" ref="employee_ssa"/>
+            <field name="employee_id" ref="employee_sobol_sa"/>
         </record>
     </data>
 </openerp>

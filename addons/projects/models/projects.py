@@ -15,6 +15,15 @@ class Projects(models.Model):
 
     task_ids = fields.One2many('projects.tasks', 'project_id', string='Tasks')
 
+    @api.onchange('status_id')
+    def _change_status(self):
+        all_equal = True
+        for task in self.task_ids:
+            if task.status_id != self.status_id:
+                all_equal = False
+
+        print all_equal
+
     @api.multi
     def name_get(self):
         def get_names(cat):

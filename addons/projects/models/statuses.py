@@ -8,3 +8,8 @@ class Statuses(models.Model):
 
     name = fields.Char()
     description = fields.Text()
+
+    @api.multi
+    def name_get(self):
+
+        return [(cat.id, cat.name) for cat in self]
