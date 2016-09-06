@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
 
 
 class Tasks(models.Model):
@@ -36,3 +37,49 @@ class Tasks(models.Model):
             for work in record.work_ids:
                 for comm in work.comment_ids:
                     self.comment_ids += comm
+
+    @api.one
+    @api.depends('owner_id', 'date_start')
+    def create_work(self, rec):
+
+
+
+        #self.date_comment = datetime.now()
+        # self.text already stored before call function
+        resource = self.env['resource.resource'].search([('user_id', '=', rec['uid'])])
+        self.employee_id = 1 # administrator
+        if len(resource.ids) > 0:
+            employee = self.env['hr.employee'].search([('resource_id', '=', resource.ids[0])])
+            if employee.id:
+                self.employee_id = employee.id
+
+        wtype = self.env['projects.work_types'].search([('name', '=', 'Обычная')])
+        if wtype.id:
+            type_id = wtype.id
+        else:
+            type_id = 1
+        self.work_ids.new({
+            'task_id': self.id,
+            'date_start': datetime.now(),
+            'owner_id': self.employee_id,
+            'type_id': type_id,
+        })
+
+        view = self.reload_page()
+
+    @api.multi
+    def reload_page(self):
+        model_obj = self.env['ir.model.data']
+        data_id = model_obj._get_id('projects', 'work_form')
+        view_id = model_obj.browse(data_id).res_id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Works',
+            'res_model': 'projects.works',
+            'view_type': 'tree',
+            'view_mode': 'form',
+            'view_id': view_id,
+            'target': 'new',
+            'nodestroy': True,
+        }
+

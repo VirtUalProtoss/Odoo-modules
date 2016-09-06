@@ -76,6 +76,7 @@
                             </page>
                             <page string="Works">
                                 <field name="work_ids" nolabel="1"/>
+                                <button string="Add work" type="action" name="projects.task_add_work"/>
                             </page>
                             <page string="History">
                                 <field name="comment_ids" nolabel="1"/>
@@ -201,11 +202,40 @@
             <field name="arch" type="xml">
                 <form string="Comments">
                     <sheet>
-                        <field name="work_id" invisible="1"/>
-                        <field name="employee_id" invisible="1"/>
-                        <field name="date_comment" invisible="1"/>
-                        <field name="text"/>
-                        <button name="add_comment" type="object" string="Add"/>
+                        <group>
+                            <field name="work_id" invisible="1"/>
+                            <field name="employee_id" invisible="1"/>
+                            <field name="date_comment" invisible="1"/>
+                            <field name="text"/>
+                            <button name="add_comment" type="object" string="Add"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="projects.task_add_work_form">
+            <field name="name">task_add_work_form</field>
+            <field name="model">projects.works</field>
+            <field name="priority">200</field>
+            <field name="arch" type="xml">
+                <form string="Works">
+                    <header>
+                        <field name="status_id" widget="statusbar" clickable="True" options="{'fold_field': 'fold'}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" string="Name" placeholder="Work Title..."/>
+                            <field name="task_id" string="Task" invisible="1"/>
+                            <field name="type_id" string="Type"/>
+                            <field name="description" string="Desription" type="html"/>
+                            <field name="owner_id" string="User"/>
+                            <field name="date_start" string="Start Date"/>
+                            <field name="date_end" string="End Date"/>
+                            <field name="planned_time"/>
+                            <field name="planned_cost"/>
+                            <button name="add_work" type="object" string="Add"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
@@ -251,6 +281,15 @@
             <field name="view_id" ref="work_add_comment_form"/>
             <field name="target">new</field>
             <!--<field name="image" widget='image' class="oe_avatar" options='{"preview_image": "image_medium"}'/>-->
+        </record>
+
+        <record model="ir.actions.act_window" id="projects.task_add_work">
+            <field name="name">task_add_work</field>
+            <field name="res_model">projects.works</field>
+            <field name="view_mode">form</field>
+
+            <field name="view_id" ref="task_add_work_form"/>
+            <field name="target">new</field>
         </record>
 
 
