@@ -13,7 +13,7 @@
     'depends': ['projects', 'resources'],
     'application': True,
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
     ],
 }

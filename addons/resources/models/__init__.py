@@ -8,3 +8,4 @@ import resource_templates
 import resource_properties
 import categories
 import template_types
+import domains

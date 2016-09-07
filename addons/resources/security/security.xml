@@ -1,7 +1,13 @@
 <openerp>
     <data>
-        <record id="group_manager" model="res.groups">
-            <field name="name">Resources</field>
+        <record id="resources_user" model="res.groups">
+            <field name="name">Ресурсы / Пользователь</field>
+        </record>
+        <record id="resources_manager" model="res.groups">
+            <field name="name">Ресурсы / Менеджер</field>
+        </record>
+        <record id="resources_admin" model="res.groups">
+            <field name="name">Ресурсы / Администратор</field>
         </record>
     </data>
 </openerp>
