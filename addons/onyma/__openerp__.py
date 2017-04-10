@@ -10,7 +10,7 @@
     'website': "http://www.mglife.ru",
     'category': 'Uncategorized',
     'version': '0.0.1',
-    'depends': ['base'],
+    'depends': ['base', 'base_external_dbsource'],
     'application': True,
     'data': [
         'ir.model.access.csv',
