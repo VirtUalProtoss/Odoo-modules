@@ -1,11 +1,13 @@
 <openerp>
     <data>
-        <record model="ir.ui.view" id="resources.resources_list">
-            <field name="name">resources_list</field>
+        <record model="ir.ui.view" id="resources.resources_tree_view">
+            <field name="name">resources.tree</field>
             <field name="model">resources.resources</field>
             <field name="arch" type="xml">
             <tree>
+                <field name="template_id"/>
                 <field name="name"/>
+                <field name="caption"/>
             <!--            <field name="need_count" attrs="{'invisible':[('type_list','!=','Prod')]}"/>-->
             </tree>
             </field>

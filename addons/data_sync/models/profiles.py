@@ -4,6 +4,7 @@
 from openerp import models, fields, api
 
 from ..syncer import Syncer
+from addons_mglife.data_sync.syncer import Syncer
 
 
 class Profiles (models.Model) :
@@ -20,4 +21,3 @@ class Profiles (models.Model) :
     @api.one
     def test(self):
         sync = Syncer()
-        

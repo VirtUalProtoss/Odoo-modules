@@ -18,3 +18,5 @@ import sessionlogs
 import sessions
 import templateparts
 import templates
+import objectmaplinkrules
+import objectmaplinkruletemplates

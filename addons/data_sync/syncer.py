@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import models
+from addons_mglife.data_sync.models.profiles import Profiles
 
 class Syncer():
 
@@ -17,6 +18,7 @@ class Syncer():
             вернуть результирующий текст
         :return:
         '''
+        pass
 
 if __name__ == '__main__':
     print 'Test'

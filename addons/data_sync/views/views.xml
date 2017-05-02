@@ -126,6 +126,12 @@
             <field name="res_model">data_sync.object_map_rules</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+        <record model="ir.actions.act_window" id="data_sync_object_map_link_rules_action_window">
+            <field name="name">object_map_link_rules</field>
+            <field name="res_model">data_sync.object_map_link_rules</field>
+            <field name="view_mode">tree,form</field>
+        </record>
         
         <record model="ir.actions.act_window" id="data_sync_template_parts_action_window">
             <field name="name">template_parts</field>
@@ -208,6 +214,7 @@
         <menuitem name="Правила подключений" id="data_sync.connection_rules" parent="data_sync.root" action="data_sync_connection_rules_action_window"/>
         <menuitem name="Части шаблонов" id="data_sync.template_parts" parent="data_sync.root" action="data_sync_template_parts_action_window"/>
         <menuitem name="Правила карт объектов" id="data_sync.object_map_rules" parent="data_sync.root" action="data_sync_object_map_rules_action_window"/>
+        <menuitem name="Линки правил карт объектов" id="data_sync.object_map_link_rules" parent="data_sync.root" action="data_sync_object_map_link_rules_action_window"/>
 
     </data>
 </openerp>
