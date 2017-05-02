@@ -1,0 +1,213 @@
+<openerp>
+    <data>
+        <!-- Forms -->
+        <record model="ir.ui.view" id="data_sync.objects_list">
+            <field name="name">objects_list</field>
+            <field name="model">data_sync.objects</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="object_type_id"/>
+                    <field name="display_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="data_sync.objects_form">
+            <field name="name">objects_form</field>
+            <field name="model">data_sync.objects</field>
+            <field name="arch" type="xml">
+                <form string="Object">
+                    <sheet>
+                        <group>
+                            <field name="parent_id"/>
+                            <field name="object_type_id"/>
+                            <field name="schema_id"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                        <field name="object_map_link_ids">
+                            <tree string="Map links">
+                                <field name="object_map_id"/>
+                                <field name="direction_type_id"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="data_sync.profiles_form">
+            <field name="name">profiles_form</field>
+            <field name="model">data_sync.profiles</field>
+            <field name="arch" type="xml">
+                <form string="Profile">
+                    <sheet>
+                        <button name="test" type="object" string="Test profile"/>
+                        <group>
+                        <field name="profile_map_ids">
+                            <tree string="Profile maps">
+                                <field name="schema_id"/>
+                                <field name="connection_id"/>
+                                <field name="direction_type_id"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="data_sync.templates_form">
+            <field name="name">templates_form</field>
+            <field name="model">data_sync.templates</field>
+            <field name="arch" type="xml">
+                <form string="Template">
+                    <sheet>
+                        <group>
+                        <field name="template_part_ids">
+                            <tree string="Template parts">
+                                <field name="param_name"/>
+                                <field name="position"/>
+                                <field name="value"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+ 
+        <!-- Actions -->
+        <record model="ir.actions.act_window" id="data_sync_templates_action_window">
+            <field name="name">templates</field>
+            <field name="res_model">data_sync.templates</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="data_sync_connections_action_window">
+            <field name="name">connections</field>
+            <field name="res_model">data_sync.connections</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_rule_types_action_window">
+            <field name="name">rule_types</field>
+            <field name="res_model">data_sync.rule_types</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_direction_types_action_window">
+            <field name="name">direction_types</field>
+            <field name="res_model">data_sync.direction_types</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_sessions_action_window">
+            <field name="name">sessions</field>
+            <field name="res_model">data_sync.sessions</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_rules_action_window">
+            <field name="name">rules</field>
+            <field name="res_model">data_sync.rules</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_session_logs_action_window">
+            <field name="name">session_logs</field>
+            <field name="res_model">data_sync.session_logs</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="data_sync_object_map_rules_action_window">
+            <field name="name">object_map_rules</field>
+            <field name="res_model">data_sync.object_map_rules</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="data_sync_template_parts_action_window">
+            <field name="name">template_parts</field>
+            <field name="res_model">data_sync.template_parts</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_connection_rules_action_window">
+            <field name="name">connection_rules</field>
+            <field name="res_model">data_sync.connection_rules</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="data_sync_objects_action_window">
+            <field name="name">objects</field>
+            <field name="res_model">data_sync.objects</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_object_map_links_action_window">
+            <field name="name">object_map_links</field>
+            <field name="res_model">data_sync.object_map_links</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_profiles_action_window">
+            <field name="name">profiles</field>
+            <field name="res_model">data_sync.profiles</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="data_sync_object_maps_action_window">
+            <field name="name">object_maps</field>
+            <field name="res_model">data_sync.object_maps</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_profile_maps_action_window">
+            <field name="name">profile_maps</field>
+            <field name="res_model">data_sync.profile_maps</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="data_sync_db_types_action_window">
+            <field name="name">db_types</field>
+            <field name="res_model">data_sync.db_types</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_object_types_action_window">
+            <field name="name">object_types</field>
+            <field name="res_model">data_sync.object_types</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="data_sync_schemas_action_window">
+            <field name="name">schemas</field>
+            <field name="res_model">data_sync.schemas</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Menus -->
+        <menuitem name="Data Sync" id="data_sync.root"/>
+        <menuitem name="Подключения" id="data_sync.connections" parent="data_sync.root" action="data_sync_connections_action_window"/>
+        <menuitem name="Шаблоны" id="data_sync.templates" parent="data_sync.root" action="data_sync_templates_action_window"/>
+        <menuitem name="Типы правил" id="data_sync.rule_types" parent="data_sync.root" action="data_sync_rule_types_action_window"/>
+        <menuitem name="Направления" id="data_sync.direction_types" parent="data_sync.root" action="data_sync_direction_types_action_window"/>
+        <menuitem name="Сессии" id="data_sync.sessions" parent="data_sync.root" action="data_sync_sessions_action_window"/>
+        <menuitem name="Правила" id="data_sync.rules" parent="data_sync.root" action="data_sync_rules_action_window"/>
+        <menuitem name="Логи сессий" id="data_sync.session_logs" parent="data_sync.root" action="data_sync_session_logs_action_window"/>
+        <menuitem name="Профили" id="data_sync.profiles" parent="data_sync.root" action="data_sync_profiles_action_window"/>
+        <menuitem name="Карты объектов" id="data_sync.object_maps" parent="data_sync.root" action="data_sync_object_maps_action_window"/>
+        <menuitem name="Карты профилей" id="data_sync.profile_maps" parent="data_sync.root" action="data_sync_profile_maps_action_window"/>
+        <menuitem name="Схемы" id="data_sync.schemas" parent="data_sync.root" action="data_sync_schemas_action_window"/>
+        <menuitem name="Типы СУБД" id="data_sync.db_types" parent="data_sync.root" action="data_sync_db_types_action_window"/>
+        <menuitem name="Типы объектов" id="data_sync.object_types" parent="data_sync.root" action="data_sync_object_types_action_window"/>
+        <menuitem name="Связи карт объектов" id="data_sync.object_map_links" parent="data_sync.root" action="data_sync_object_map_links_action_window"/>
+        <menuitem name="Объекты" id="data_sync.objects" parent="data_sync.root" action="data_sync_objects_action_window"/>
+        <menuitem name="Правила подключений" id="data_sync.connection_rules" parent="data_sync.root" action="data_sync_connection_rules_action_window"/>
+        <menuitem name="Части шаблонов" id="data_sync.template_parts" parent="data_sync.root" action="data_sync_template_parts_action_window"/>
+        <menuitem name="Правила карт объектов" id="data_sync.object_map_rules" parent="data_sync.root" action="data_sync_object_map_rules_action_window"/>
+
+    </data>
+</openerp>

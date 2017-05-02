@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Billing Onyma",
+    'name': "Data Syncer",
     'summary': """
-        Интеграция с Onyma""",
+        Синхронизация данных между СУБД""",
     'description': """
-        Модуль интеграции с биллингом Onyma
+        Синхронизация данных между СУБД
     """,
     'author': "MGLife",
     'website': "http://www.mglife.ru",
@@ -13,8 +13,8 @@
     'depends': ['base', 'base_external_dbsource'],
     'application': True,
     'data': [
-        'ir.model.access.csv',
+        #'ir.model.access.csv',
         'views/views.xml',
-        'data.xml',
+        'data/data.xml',
     ],
 }

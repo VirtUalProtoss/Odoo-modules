@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_replicator_connections_all,replicator_connections_all,model_replicator_connections,,True,True,True,True
+access_replicator_tables_all,replicator_tables_all,model_replicator_tables,,True,True,True,True
+

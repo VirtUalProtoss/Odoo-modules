@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Billing Onyma",
+    'name': "Data replicator",
     'summary': """
-        Интеграция с Onyma""",
+        Репликация данных между СУБД""",
     'description': """
-        Модуль интеграции с биллингом Onyma
+        Репликация данных между СУБД
     """,
     'author': "MGLife",
     'website': "http://www.mglife.ru",
@@ -15,6 +15,6 @@
     'data': [
         'ir.model.access.csv',
         'views/views.xml',
-        'data.xml',
+        #'data.xml',
     ],
 }

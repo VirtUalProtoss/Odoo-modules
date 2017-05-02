@@ -1,0 +1,267 @@
+<openerp>
+	<data>
+        <!-- DB Types -->
+		<record id="db_type_oracle" model="data_sync.db_types">
+            <field name="name">Oracle</field>
+        </record>
+        
+        <record id="db_type_postgres" model="data_sync.db_types">
+            <field name="name">PostgreSQL</field>
+        </record>
+
+        <record id="db_type_msssql" model="data_sync.db_types">
+            <field name="name">MSSQL</field>
+        </record>
+
+        <record id="db_type_mysql" model="data_sync.db_types">
+            <field name="name">MySQL</field>
+        </record>
+
+        <record id="db_type_firebird" model="data_sync.db_types">
+            <field name="name">Firebird</field>
+        </record>
+        
+        <!-- Schemas -->
+        <record id="schemas_onyma" model="data_sync.schemas">
+            <field name="name">Onyma</field>
+        </record>
+
+        <record id="schemas_phone_main" model="data_sync.schemas">
+            <field name="name">Phone main</field>
+        </record>
+
+        <!-- Object types -->
+        <record id="object_types_schema" model="data_sync.object_types">
+            <field name="name">schema</field>
+        </record>
+
+        <record id="object_types_packet" model="data_sync.object_types">
+            <field name="name">packet</field>
+        </record>
+
+        <record id="object_types_view" model="data_sync.object_types">
+            <field name="name">view</field>
+        </record>
+
+        <record id="object_types_materialized_view" model="data_sync.object_types">
+            <field name="name">materialized view</field>
+        </record>
+
+        <record id="object_types_table" model="data_sync.object_types">
+            <field name="name">table</field>
+        </record>
+
+        <record id="object_types_procedure" model="data_sync.object_types">
+            <field name="name">procedure</field>
+        </record>
+
+        <record id="object_types_function" model="data_sync.object_types">
+            <field name="name">function</field>
+        </record>
+
+        <record id="object_types_field" model="data_sync.object_types">
+            <field name="name">field</field>
+        </record>
+
+        <record id="object_types_union" model="data_sync.object_types">
+            <field name="name">union</field>
+        </record>
+
+        <record id="object_types_join" model="data_sync.object_types">
+            <field name="name">join</field>
+        </record>
+
+        <!-- Objects -->
+        <record id="objects_onyma_api_operators" model="data_sync.objects">
+            <field name="name">api_operators</field>
+            <field name="schema_id" ref="schemas_onyma"/>
+            <field name="object_type_id" ref="object_types_table"/>
+        </record>
+
+        <record id="objects_onyma_api_operators_operid" model="data_sync.objects">
+            <field name="name">operid</field>
+            <field name="schema_id" ref="schemas_onyma"/>
+            <field name="parent_id" ref="objects_onyma_api_operators"/>
+            <field name="object_type_id" ref="object_types_field"/>
+        </record>
+
+        <record id="objects_onyma_api_operators_login" model="data_sync.objects">
+            <field name="name">login</field>
+            <field name="schema_id" ref="schemas_onyma"/>
+            <field name="parent_id" ref="objects_onyma_api_operators"/>
+            <field name="object_type_id" ref="object_types_field"/>
+        </record>
+
+        <record id="objects_onyma_api_operators_password" model="data_sync.objects">
+            <field name="name">password</field>
+            <field name="schema_id" ref="schemas_onyma"/>
+            <field name="parent_id" ref="objects_onyma_api_operators"/>
+            <field name="object_type_id" ref="object_types_field"/>
+        </record>
+
+
+
+        <record id="objects_phone_onyma" model="data_sync.objects">
+            <field name="name">onyma</field>
+            <field name="schema_id" ref="schemas_phone_main"/>
+            <field name="object_type_id" ref="object_types_schema"/>
+        </record>
+
+        <record id="objects_phone_onyma_operators" model="data_sync.objects">
+            <field name="name">operators</field>
+            <field name="schema_id" ref="schemas_phone_main"/>
+            <field name="parent_id" ref="objects_phone_onyma"/>
+            <field name="object_type_id" ref="object_types_table"/>
+        </record>
+
+        <record id="objects_phone_onyma_operators_id" model="data_sync.objects">
+            <field name="name">id</field>
+            <field name="schema_id" ref="schemas_phone_main"/>
+            <field name="parent_id" ref="objects_phone_onyma_operators"/>
+            <field name="object_type_id" ref="object_types_field"/>
+        </record>
+
+        <record id="objects_phone_onyma_operators_login" model="data_sync.objects">
+            <field name="name">login</field>
+            <field name="schema_id" ref="schemas_phone_main"/>
+            <field name="parent_id" ref="objects_phone_onyma_operators"/>
+            <field name="object_type_id" ref="object_types_field"/>
+        </record>
+
+        <record id="objects_phone_onyma_operators_password" model="data_sync.objects">
+            <field name="name">password</field>
+            <field name="schema_id" ref="schemas_phone_main"/>
+            <field name="parent_id" ref="objects_phone_onyma_operators"/>
+            <field name="object_type_id" ref="object_types_field"/>
+        </record>
+
+        <!-- Rule types -->
+        <record id="rule_types_after_connect" model="data_sync.rule_types">
+            <field name="name">after_connect</field>
+            <field name="object_type_id" ref="object_types_procedure"/>
+        </record>
+
+        <record id="rule_types_table_select" model="data_sync.rule_types">
+            <field name="name">table_select</field>
+            <field name="object_type_id" ref="object_types_table"/>
+        </record>
+
+        <record id="rule_types_table_delete" model="data_sync.rule_types">
+            <field name="name">table_delete</field>
+            <field name="object_type_id" ref="object_types_table"/>
+        </record>
+
+        <record id="rule_types_table_insert" model="data_sync.rule_types">
+            <field name="name">table_insert</field>
+            <field name="object_type_id" ref="object_types_table"/>
+        </record>
+
+        <record id="rule_types_table_update" model="data_sync.rule_types">
+            <field name="name">table_update</field>
+            <field name="object_type_id" ref="object_types_table"/>
+        </record>
+
+        <record id="rule_types_table_create" model="data_sync.rule_types">
+            <field name="name">table_create</field>
+            <field name="object_type_id" ref="object_types_table"/>
+        </record>
+
+        <record id="rule_types_table_drop" model="data_sync.rule_types">
+            <field name="name">table_drop</field>
+            <field name="object_type_id" ref="object_types_table"/>
+        </record>
+
+        <!-- Rules -->
+        <record id="rules_onyma_auth" model="data_sync.rules">
+            <field name="name">onyma_auth</field>
+            <field name="rule_type_id" ref="rule_types_after_connect"/>
+        </record>
+
+        <!-- Templates -->
+        <record id="templates_oracle_procedure" model="data_sync.templates">
+            <field name="name">oracle_procedure</field>
+            <field name="rule_type_id" ref="rule_types_after_connect"/>
+            <field name="db_type_id" ref="db_type_oracle"/>
+            <field name="template_string">begin %(body)s end;</field>
+        </record>
+
+        <record id="templates_select_all" model="data_sync.templates">
+            <field name="name">select_all</field>
+            <field name="rule_type_id" ref="rule_types_table_select"/>
+            <field name="db_type_id" ref="db_type_oracle"/>
+            <field name="template_string">select * from %(table)s</field>
+        </record>
+
+        <!-- Template parts -->
+        <record id="template_parts_oracle_procedure_0" model="data_sync.template_parts">
+            <field name="template_id" ref="templates_oracle_procedure"/>
+            <field name="param_name">begin</field>
+            <field name="position">0</field>
+            <field name="value">begin </field>
+        </record>
+
+        <record id="template_parts_oracle_procedure_1" model="data_sync.template_parts">
+            <field name="template_id" ref="templates_oracle_procedure"/>
+            <field name="param_name">body</field>
+            <field name="position">1</field>
+            <field name="value">%(body)s</field>
+        </record>
+
+        <record id="template_parts_oracle_procedure_2" model="data_sync.template_parts">
+            <field name="template_id" ref="templates_oracle_procedure"/>
+            <field name="param_name">end</field>
+            <field name="position">2</field>
+            <field name="value"> end;</field>
+        </record>
+
+        <record id="template_parts_select_all_0" model="data_sync.template_parts">
+            <field name="template_id" ref="templates_select_all"/>
+            <field name="param_name"></field>
+            <field name="position">0</field>
+            <field name="value">select * from </field>
+        </record>
+
+        <record id="template_parts_select_all_1" model="data_sync.template_parts">
+            <field name="template_id" ref="templates_select_all"/>
+            <field name="param_name">table</field>
+            <field name="position">1</field>
+            <field name="value">%(table)s</field>
+        </record>
+
+        <!-- Connections -->
+        <record id="connections_phone_main" model="data_sync.connections">
+            <field name="name">phone_main</field>
+            <!--<field name="ext_dbsource_id" ref="object_types_procedure"/> -->
+            <field name="db_type_id" ref="db_type_postgres"/>
+        </record>
+
+        <record id="connections_onyma_api_ttk" model="data_sync.connections">
+            <field name="name">onyma_api_ttk</field>
+            <!--<field name="ext_dbsource_id" ref="object_types_procedure"/> -->
+            <field name="db_type_id" ref="db_type_oracle"/>
+        </record>
+
+        <!-- Profiles -->
+        <record id="profiles_phone_import" model="data_sync.profiles">
+            <field name="name">phone_import</field>
+        </record> 
+
+        <!-- Connection rules -->
+        <record id="connection_rules_onyma_api_ttk" model="data_sync.connection_rules">
+            <field name="order">0</field>
+            <field name="value"/>
+            <field name="rule_id" ref="rules_onyma_auth"/>
+            <field name="connection_id" ref="connections_onyma_api_ttk"/>
+            <field name="profile_id" ref="profiles_phone_import"/>
+        </record>
+
+        <!-- Direction types -->
+        <record id="direction_types_export" model="data_sync.direction_types">
+            <field name="name">export</field>
+        </record>
+
+        <record id="direction_types_import" model="data_sync.direction_types">
+            <field name="name">import</field>
+        </record> 
+	</data>
+</openerp>
